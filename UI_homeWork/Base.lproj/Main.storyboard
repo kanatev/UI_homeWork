@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email или телефон" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-uE-EtY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWH-uE-EtY">
                                 <rect key="frame" x="30" y="300" width="354" height="30"/>
                                 <color key="textColor" red="0.63508141040802002" green="0.63905107975006104" blue="0.65142422914505005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="width" constant="83" id="bsz-c6-6UV"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Пароль" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-R0-tQf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-R0-tQf">
                                 <rect key="frame" x="30" y="330" width="354" height="30"/>
                                 <color key="textColor" red="0.6350938081741333" green="0.63912546634674072" blue="0.64734524488449097" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="Войти">
                                     <color key="titleColor" red="0.48329770565032959" green="0.66333121061325073" blue="0.8545987606048584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="enterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bh3-Bc-KaD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.31480666995048523" green="0.54384368658065796" blue="0.80130952596664429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,6 +66,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="enterButtonOutlet" destination="hPo-sV-ltn" id="yIE-1Q-nMW"/>
                         <outlet property="loginTextField" destination="dWH-uE-EtY" id="eEJ-FG-nKq"/>
                         <outlet property="passwordTextField" destination="JFt-R0-tQf" id="AV9-YY-5Ne"/>
                     </connections>
