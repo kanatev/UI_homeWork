@@ -6,6 +6,8 @@
 //  Copyright © 2019 Aleksei Kanatev. All rights reserved.
 //
 
+// Приступаю к дз #2
+
 import UIKit
 
 class FirstVC: UIViewController {
