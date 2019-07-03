@@ -14,6 +14,7 @@
 		E54CA66F22C8653B00EB78AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E54CA66D22C8653B00EB78AE /* LaunchScreen.storyboard */; };
 		E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581236E22CCB81E00A938DA /* FriendsTableVC.swift */; };
 		E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581237122CCBEDA00A938DA /* GroupsTableVC.swift */; };
+		E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E54CA67022C8653B00EB78AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E581236E22CCB81E00A938DA /* FriendsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableVC.swift; sourceTree = "<group>"; };
 		E581237122CCBEDA00A938DA /* GroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableVC.swift; sourceTree = "<group>"; };
+		E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				E54CA66622C8653B00EB78AE /* FirstVC.swift */,
 				E581236E22CCB81E00A938DA /* FriendsTableVC.swift */,
 				E581237122CCBEDA00A938DA /* GroupsTableVC.swift */,
+				E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */,
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
 				E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */,
+				E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */,
 				E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

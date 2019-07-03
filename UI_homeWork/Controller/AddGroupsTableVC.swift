@@ -1,5 +1,5 @@
 //
-//  GroupsTableVC.swift
+//  AddGroupsTableVC.swift
 //  UI_homeWork
 //
 //  Created by Aleksei Kanatev on 03/07/2019.
@@ -8,17 +8,10 @@
 
 import UIKit
 
-class GroupsTableVC: UITableViewController {
-    
-    
-    let groupsArray = ["Я Миллиардер", "Просто о бизнесе", "Техно клуб", "Думай и богатей", "Планета знаний", "Гений креатива", "Discovery", "Steampunk", "Cosplay", "pcGaming", "GeekBrains", "Apple"]
+class AddGroupsTableVC: UITableViewController {
 
+    let addGroupsArray = ["HD Обои", "Школа бизнеса", "Men's things", "Любимая качалка", "МотоПрайд", "Kickstarter", "Swiftbook", "Travel", "CashFlow", "Robots", "English courses", "PuzzleEnglish"]
     
-    @IBAction func exitButton(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,18 +29,18 @@ class GroupsTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groupsArray.count
+        return addGroupsArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addGroupCell", for: indexPath)
 
-        cell.textLabel?.text = groupsArray[indexPath.row]
+        cell.textLabel?.text = addGroupsArray[indexPath.row]
         
         return cell
     }
- 
+    
 
     /*
     // Override to support conditional editing of the table view.
