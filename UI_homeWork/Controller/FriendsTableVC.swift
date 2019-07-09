@@ -15,7 +15,7 @@ class FriendsTableVC: UITableViewController {
     }
     
     
-    var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Тоня"]
+    var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
     
 
     
@@ -40,6 +40,9 @@ class FriendsTableVC: UITableViewController {
         super.viewDidLoad()
         self.refreshControl = myRefreshControl
         
+        // задаем высоту ячейки
+        self.tableView.rowHeight = 100
+        
 
     }
 
@@ -56,9 +59,19 @@ class FriendsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        
         cell.textLabel?.text = friendsArray[indexPath.row]
         
+        // присваиваем человеку фото
+        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
+        if cell.imageView?.image == nil {
+            cell.imageView?.image = UIImage(named: "empty_photo")
+        }
+        
+        cell.imageView?.layer.borderColor = UIColor.black.cgColor
+        cell.imageView?.layer.borderWidth = 1.0
+        cell.imageView?.layer.masksToBounds = false
+        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
+        cell.imageView?.clipsToBounds = true
         
         return cell
     }
