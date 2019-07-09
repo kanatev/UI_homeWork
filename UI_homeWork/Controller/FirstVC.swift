@@ -48,13 +48,13 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
         enterButtonOutlet.layer.cornerRadius = 5
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if loginTextField.text == "admin" && passwordTextField.text == "123456" {
-            clearTextFields()
-            return true
-        } else {
-            showArert()
-            return false
-        }
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        if loginTextField.text == "admin" && passwordTextField.text == "123456" {
+//            clearTextFields()
+//            return true
+//        } else {
+//            showArert()
+//            return false
+//        }
+//    }
 }

@@ -95,3 +95,10 @@ class GroupsTableVC: UITableViewController {
     */
 
 }
+
+// убираем постоянное выделение ячейки
+extension GroupsTableVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
