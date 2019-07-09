@@ -10,7 +10,6 @@ import UIKit
 
 class FriendCollectionVC: UICollectionViewController {
 
-    var nameOfFriend = "name"
     var photoArray: [UIImage] = []
     
     
