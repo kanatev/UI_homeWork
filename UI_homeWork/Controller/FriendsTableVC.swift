@@ -14,11 +14,19 @@ class FriendsTableVC: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFriendCollectionVC" {
+            let friendDestination: FriendCollectionVC = segue.destination as! FriendCollectionVC
+            let friendSource = segue.source as! FriendsTableVC
+            
+            if let indexPath = friendSource.tableView.indexPathForSelectedRow {
+                friendDestination.photoArray.append(UIImage(named: self.friendsArray[indexPath.row])!)
+            }
+        }
+        
+    }
     
     var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
-    
-
-    
     
     
     // refresh control
@@ -43,7 +51,6 @@ class FriendsTableVC: UITableViewController {
         // задаем высоту ячейки
         self.tableView.rowHeight = 100
         
-
     }
 
     // MARK: - Table view data source
@@ -61,12 +68,14 @@ class FriendsTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
         cell.textLabel?.text = friendsArray[indexPath.row]
         
+        
         // присваиваем человеку фото
         cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
         if cell.imageView?.image == nil {
             cell.imageView?.image = UIImage(named: "empty_photo")
         }
         
+        // настраиваем скругление фото
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
         cell.imageView?.layer.borderWidth = 1.0
         cell.imageView?.layer.masksToBounds = false
@@ -76,7 +85,9 @@ class FriendsTableVC: UITableViewController {
         return cell
     }
  
-
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
 
 }
 

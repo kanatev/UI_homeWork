@@ -11,7 +11,7 @@ import UIKit
 class GroupsTableVC: UITableViewController {
     
     
-    let groupsArray = ["Я Миллиардер", "Просто о бизнесе", "Техно клуб", "Думай и богатей", "Планета знаний", "Гений креатива", "Discovery", "Steampunk", "Cosplay", "pcGaming", "GeekBrains", "Apple"]
+    var groupsArray = ["Я Миллиардер", "Просто о бизнесе", "Техно клуб", "Думай и богатей", "Планета знаний", "Гений креатива", "Discovery", "Steampunk", "Cosplay", "pcGaming", "GeekBrains", "Apple"]
 
     
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
@@ -31,6 +31,19 @@ class GroupsTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+        guard let addGroups = segue.source as? AddGroupsTableVC,
+        let indexPath = addGroups.tableView.indexPathForSelectedRow else {return}
+        let newGroup = addGroups.addGroupsArray[indexPath.row]
+        
+        // проверяем нет ли уже такой группы
+        guard !groupsArray.contains(where: {group -> Bool in
+            group == newGroup
+        }) else {return}
+        groupsArray.append(newGroup)
+        tableView.reloadData()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
