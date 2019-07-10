@@ -16,8 +16,9 @@
 		E56D3E2022D4D77D003D67D2 /* FriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */; };
 		E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581236E22CCB81E00A938DA /* FriendsTableVC.swift */; };
 		E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581237122CCBEDA00A938DA /* GroupsTableVC.swift */; };
-		E5AA35D022D5081F00F5F0A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35CF22D5081F00F5F0A2 /* User.swift */; };
-		E5AA35D222D5082C00F5F0A2 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35D122D5082C00F5F0A2 /* Group.swift */; };
+		E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35CF22D5081F00F5F0A2 /* UserStruct.swift */; };
+		E5AA35D222D5082C00F5F0A2 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35D122D5082C00F5F0A2 /* GroupStruct.swift */; };
+		E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8A5F122D5AE3A008BE120 /* UserData.swift */; };
 		E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +34,9 @@
 		E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E581236E22CCB81E00A938DA /* FriendsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableVC.swift; sourceTree = "<group>"; };
 		E581237122CCBEDA00A938DA /* GroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableVC.swift; sourceTree = "<group>"; };
-		E5AA35CF22D5081F00F5F0A2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E5AA35D122D5082C00F5F0A2 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		E5AA35CF22D5081F00F5F0A2 /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
+		E5AA35D122D5082C00F5F0A2 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
+		E5C8A5F122D5AE3A008BE120 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				E54CA66422C8653B00EB78AE /* AppDelegate.swift */,
+				E5C8A5F322D5AE48008BE120 /* Data */,
 				E5AA35D322D5083400F5F0A2 /* Model */,
 				E581237022CCB82500A938DA /* Controller */,
 				E5AA35D422D5088200F5F0A2 /* View */,
@@ -94,8 +97,8 @@
 		E5AA35D322D5083400F5F0A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E5AA35CF22D5081F00F5F0A2 /* User.swift */,
-				E5AA35D122D5082C00F5F0A2 /* Group.swift */,
+				E5AA35CF22D5081F00F5F0A2 /* UserStruct.swift */,
+				E5AA35D122D5082C00F5F0A2 /* GroupStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,6 +110,14 @@
 				E54CA66D22C8653B00EB78AE /* LaunchScreen.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E5C8A5F322D5AE48008BE120 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8A5F122D5AE3A008BE120 /* UserData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,14 +191,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AA35D222D5082C00F5F0A2 /* Group.swift in Sources */,
+				E5AA35D222D5082C00F5F0A2 /* GroupStruct.swift in Sources */,
 				E513097422CCD2070014E711 /* FriendCollectionVC.swift in Sources */,
 				E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */,
 				E56D3E2022D4D77D003D67D2 /* FriendsCollectionViewCell.swift in Sources */,
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
-				E5AA35D022D5081F00F5F0A2 /* User.swift in Sources */,
+				E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */,
 				E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */,
 				E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */,
+				E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */,
 				E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

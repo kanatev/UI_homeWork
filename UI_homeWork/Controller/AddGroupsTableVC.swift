@@ -10,7 +10,7 @@ import UIKit
 
 class AddGroupsTableVC: UITableViewController {
 
-    let addGroupsArray = ["HD Обои", "Школа бизнеса", "Men's things", "Любимая качалка", "МотоПрайд", "Kickstarter", "Swiftbook", "Travel", "CashFlow", "Robots", "English courses", "PuzzleEnglish"]
+    let addGroupsArray = ["Science", "Steampunk", "Travel"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +37,20 @@ class AddGroupsTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addGroupCell", for: indexPath)
 
         cell.textLabel?.text = addGroupsArray[indexPath.row]
+        
+        
+        // присваиваем группе фото
+        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
+        if cell.imageView?.image == nil {
+            cell.imageView?.image = UIImage(named: "empty_photo")
+        }
+        
+        // настраиваем скругление фото
+        cell.imageView?.layer.borderColor = UIColor.black.cgColor
+        cell.imageView?.layer.borderWidth = 1.0
+        cell.imageView?.layer.masksToBounds = false
+        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
+        cell.imageView?.clipsToBounds = true
         
         return cell
     }

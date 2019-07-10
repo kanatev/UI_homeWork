@@ -11,7 +11,7 @@ import UIKit
 class GroupsTableVC: UITableViewController {
     
     
-    var groupsArray = ["Я Миллиардер", "Просто о бизнесе", "Техно клуб", "Думай и богатей", "Планета знаний", "Гений креатива", "Discovery", "Steampunk", "Cosplay", "pcGaming", "GeekBrains", "Apple"]
+    var groupsArray = ["Arduino", "GeekBrains", "Apple", "Goose"]
 
     
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
@@ -21,6 +21,9 @@ class GroupsTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // задаем высоту ячейки
+//        self.tableView.rowHeight = 70
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,7 +59,23 @@ class GroupsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
 
+        
         cell.textLabel?.text = groupsArray[indexPath.row]
+        
+        
+        // присваиваем группе фото
+        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
+        if cell.imageView?.image == nil {
+            cell.imageView?.image = UIImage(named: "empty_photo")
+        }
+        
+        // настраиваем скругление фото
+        cell.imageView?.layer.borderColor = UIColor.black.cgColor
+        cell.imageView?.layer.borderWidth = 1.0
+        cell.imageView?.layer.masksToBounds = false
+        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
+        cell.imageView?.clipsToBounds = true
+        
         
         return cell
     }

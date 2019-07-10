@@ -30,23 +30,23 @@ class FriendsTableVC: UITableViewController {
     
     
     // refresh control
-    var myRefreshControl: UIRefreshControl {
-        let refControl = UIRefreshControl()
-        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-        return refControl
-    }
+//    var myRefreshControl: UIRefreshControl {
+//        let refControl = UIRefreshControl()
+//        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+//        return refControl
+//    }
     
     // action для refresh control
-    @objc private func refresh(sender: UIRefreshControl) {
-        let str = "Новый друг номер: \(friendsArray.count)"
-        friendsArray.append(str)
-        self.tableView.reloadData()
-        sender.endRefreshing()
-    }
+//    @objc private func refresh(sender: UIRefreshControl) {
+//        let str = "Новый друг номер: \(friendsArray.count)"
+//        friendsArray.append(str)
+//        self.tableView.reloadData()
+//        sender.endRefreshing()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl = myRefreshControl
+//        self.refreshControl = myRefreshControl
         
         // задаем высоту ячейки
         self.tableView.rowHeight = 100

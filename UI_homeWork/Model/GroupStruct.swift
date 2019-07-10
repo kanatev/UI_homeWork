@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Group.swift
 //  UI_homeWork
 //
 //  Created by Aleksei Kanatev on 09/07/2019.
@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-struct User {
+struct GroupStruct {
     
     let name: String
-    let avatar: UIImage
-    
+    let avatar: UIImage?
+
 }

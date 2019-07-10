@@ -12,8 +12,6 @@ import UIKit
 
 class FirstVC: UIViewController, UIAlertViewDelegate {
     
-    
-    
     // white status bar
     var barStyle = UIStatusBarStyle.lightContent
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -23,7 +21,6 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var enterButtonOutlet: UIButton!
-    
     
     func clearTextFields() {
         loginTextField.text = nil
