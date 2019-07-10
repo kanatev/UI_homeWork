@@ -6,6 +6,8 @@
 //  Copyright © 2019 Aleksei Kanatev. All rights reserved.
 //
 
+// отправляю на проверку
+
 import UIKit
 
 class FriendsTableVC: UITableViewController {
@@ -90,4 +92,5 @@ class FriendsTableVC: UITableViewController {
 //    }
 
 }
+
 
