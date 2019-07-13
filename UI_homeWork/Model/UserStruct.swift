@@ -24,5 +24,9 @@ struct UserStruct {
         self.photoArray = photoArray
     }
     
+    static func createFriendsArray () -> [UserStruct] {
+        return friendsArray
+    }
+    
 }
 

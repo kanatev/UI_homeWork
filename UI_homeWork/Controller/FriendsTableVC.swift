@@ -12,6 +12,9 @@ import UIKit
 
 class FriendsTableVC: UITableViewController {
 
+    
+    
+    
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -20,15 +23,17 @@ class FriendsTableVC: UITableViewController {
         if segue.identifier == "goToFriendCollectionVC" {
             let friendDestination: FriendCollectionVC = segue.destination as! FriendCollectionVC
             let friendSource = segue.source as! FriendsTableVC
-            
+
             if let indexPath = friendSource.tableView.indexPathForSelectedRow {
-                friendDestination.photoArray.append(UIImage(named: self.friendsArray[indexPath.row])!)
+                friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
             }
         }
-        
+
     }
     
-    var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
+//    var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
+    
+    var friendsArray = UserStruct.createFriendsArray()
     
     
     // refresh control
@@ -68,14 +73,14 @@ class FriendsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        cell.textLabel?.text = friendsArray[indexPath.row]
-        
+        cell.textLabel?.text = friendsArray[indexPath.row].name
+        cell.imageView?.image = friendsArray[indexPath.row].avatar
         
         // присваиваем человеку фото
-        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
-        if cell.imageView?.image == nil {
-            cell.imageView?.image = UIImage(named: "empty_photo")
-        }
+//        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
+//        if cell.imageView?.image == nil {
+//            cell.imageView?.image = UIImage(named: "empty_photo")
+//        }
         
         // настраиваем скругление фото
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
