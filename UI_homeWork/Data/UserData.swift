@@ -40,3 +40,17 @@ var friendsArray: [UserStruct] = [
 
 
 
+var groupsArray: [GroupStruct] = [
+    GroupStruct(groupName: "Arduino", groupAvatar: UIImage (named: "Arduino")),
+    GroupStruct(groupName: "GeekBrains", groupAvatar: UIImage (named: "GeekBrains")),
+    GroupStruct(groupName: "Apple", groupAvatar: UIImage (named: "Apple")),
+    GroupStruct(groupName: "Goose", groupAvatar: UIImage (named: "Goose"))
+]
+
+
+
+let AllGroupsArray: [GroupStruct] = [
+    GroupStruct(groupName: "Science", groupAvatar: UIImage (named: "Science")),
+    GroupStruct(groupName: "Steampunk", groupAvatar: UIImage (named: "Steampunk")),
+    GroupStruct(groupName: "Travel", groupAvatar: UIImage (named: "Travel"))
+]

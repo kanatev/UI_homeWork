@@ -9,9 +9,26 @@
 import Foundation
 import UIKit
 
-struct GroupStruct {
+struct GroupStruct: Equatable {
     
-    let name: String
-    let avatar: UIImage?
+    let groupName: String
+    let groupAvatar: UIImage?
+    
+    init(groupName: String,
+         groupAvatar: UIImage? = nil) {
+        
+        self.groupName = groupName
+        self.groupAvatar = groupAvatar
+    }
+    
+    static func createGroupsArray () -> [GroupStruct] {
+        return groupsArray
+    }
+    
+    static func createAddGroupsArray() -> [GroupStruct] {
+        return AllGroupsArray
+    }
+    
+    
 }
 

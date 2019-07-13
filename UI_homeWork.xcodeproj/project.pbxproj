@@ -19,7 +19,7 @@
 		E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35CF22D5081F00F5F0A2 /* UserStruct.swift */; };
 		E5AA35D222D5082C00F5F0A2 /* GroupStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AA35D122D5082C00F5F0A2 /* GroupStruct.swift */; };
 		E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8A5F122D5AE3A008BE120 /* UserData.swift */; };
-		E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */; };
+		E5F474F222CCC35B00E73A12 /* AllGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		E5AA35CF22D5081F00F5F0A2 /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
 		E5AA35D122D5082C00F5F0A2 /* GroupStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStruct.swift; sourceTree = "<group>"; };
 		E5C8A5F122D5AE3A008BE120 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupsTableVC.swift; sourceTree = "<group>"; };
+		E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 				E513097322CCD2070014E711 /* FriendCollectionVC.swift */,
 				E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */,
 				E581237122CCBEDA00A938DA /* GroupsTableVC.swift */,
-				E5F474F122CCC35B00E73A12 /* AddGroupsTableVC.swift */,
+				E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
 				E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */,
 				E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */,
-				E5F474F222CCC35B00E73A12 /* AddGroupsTableVC.swift in Sources */,
+				E5F474F222CCC35B00E73A12 /* AllGroupsTableVC.swift in Sources */,
 				E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */,
 				E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */,
 			);
