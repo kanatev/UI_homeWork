@@ -13,5 +13,5 @@ struct GroupStruct {
     
     let name: String
     let avatar: UIImage?
-
 }
+
