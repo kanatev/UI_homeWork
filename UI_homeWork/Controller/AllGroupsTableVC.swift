@@ -1,5 +1,5 @@
 //
-//  AddGroupsTableVC.swift
+//  AllGroupsTableVC.swift
 //  UI_homeWork
 //
 //  Created by Aleksei Kanatev on 03/07/2019.
@@ -8,13 +8,17 @@
 
 import UIKit
 
-class AddGroupsTableVC: UITableViewController {
+class AllGroupsTableVC: UITableViewController {
 
-    let addGroupsArray = ["Science", "Steampunk", "Travel"]
+    let allGroupsArray = GroupStruct.createAddGroupsArray()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // задаем высоту ячейки
+        self.tableView.rowHeight = 50
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,25 +33,26 @@ class AddGroupsTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return addGroupsArray.count
+        return allGroupsArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addGroupCell", for: indexPath)
 
-        cell.textLabel?.text = addGroupsArray[indexPath.row]
+        cell.textLabel?.text = allGroupsArray[indexPath.row].groupName
+        cell.imageView?.image = allGroupsArray[indexPath.row].groupAvatar ?? UIImage (named: "empty_photo")!
         
         
-        // присваиваем группе фото
-        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
-        if cell.imageView?.image == nil {
-            cell.imageView?.image = UIImage(named: "empty_photo")
-        }
+//        // присваиваем группе фото
+//        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
+//        if cell.imageView?.image == nil {
+//            cell.imageView?.image = UIImage(named: "empty_photo")
+//        }
         
         // настраиваем скругление фото
         cell.imageView?.layer.borderColor = UIColor.black.cgColor
-        cell.imageView?.layer.borderWidth = 1.0
+        cell.imageView?.layer.borderWidth = 0.5
         cell.imageView?.layer.masksToBounds = false
         cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
         cell.imageView?.clipsToBounds = true

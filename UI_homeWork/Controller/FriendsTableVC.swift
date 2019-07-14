@@ -6,15 +6,12 @@
 //  Copyright © 2019 Aleksei Kanatev. All rights reserved.
 //
 
-// отправляю на проверку
-
 import UIKit
 
-class FriendsTableVC: UITableViewController {
+@IBDesignable class FriendsTableVC: UITableViewController {
 
-    
-    
-    
+    var friendsArray = UserStruct.createFriendsArray()
+
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -28,28 +25,26 @@ class FriendsTableVC: UITableViewController {
                 friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
             }
         }
-
     }
     
-//    var friendsArray = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
-    
-    var friendsArray = UserStruct.createFriendsArray()
-    
-    
+    // Оставлю для новостной ленты
+    //--------------------------------------------------------------------
     // refresh control
-//    var myRefreshControl: UIRefreshControl {
-//        let refControl = UIRefreshControl()
-//        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-//        return refControl
-//    }
+    //    var myRefreshControl: UIRefreshControl {
+    //        let refControl = UIRefreshControl()
+    //        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+    //        return refControl
+    //    }
     
     // action для refresh control
-//    @objc private func refresh(sender: UIRefreshControl) {
-//        let str = "Новый друг номер: \(friendsArray.count)"
-//        friendsArray.append(str)
-//        self.tableView.reloadData()
-//        sender.endRefreshing()
-//    }
+    //    @objc private func refresh(sender: UIRefreshControl) {
+    //        let str = "Новый друг номер: \(friendsArray.count)"
+    //        friendsArray.append(str)
+    //        self.tableView.reloadData()
+    //        sender.endRefreshing()
+    //    }
+    //--------------------------------------------------------------------
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,31 +65,14 @@ class FriendsTableVC: UITableViewController {
         return friendsArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        cell.textLabel?.text = friendsArray[indexPath.row].name
-        cell.imageView?.image = friendsArray[indexPath.row].avatar
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         
-        // присваиваем человеку фото
-//        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
-//        if cell.imageView?.image == nil {
-//            cell.imageView?.image = UIImage(named: "empty_photo")
-//        }
-        
-        // настраиваем скругление фото
-        cell.imageView?.layer.borderColor = UIColor.black.cgColor
-        cell.imageView?.layer.borderWidth = 1.0
-        cell.imageView?.layer.masksToBounds = false
-        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
-        cell.imageView?.clipsToBounds = true
+        cell.friendNameLabel.text = friendsArray[indexPath.row].name
+        cell.photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
         
         return cell
     }
- 
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
 
 }
 
