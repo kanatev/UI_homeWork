@@ -101,8 +101,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-Pg-Pvm">
                                             <rect key="frame" x="5" y="0.0" width="99" height="99"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="99" id="kuQ-cb-ZDP"/>
-                                                <constraint firstAttribute="width" constant="99" id="pIu-ej-47C"/>
+                                                <constraint firstAttribute="width" secondItem="f0B-Pg-Pvm" secondAttribute="height" multiplier="1:1" id="MVD-9f-eGn"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -116,6 +115,20 @@
                                         <constraint firstAttribute="bottom" secondItem="f0B-Pg-Pvm" secondAttribute="bottom" constant="0.5" id="fXa-7x-kNf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="opacityShad">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusShad">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="offsetShad">
+                                        <size key="value" width="3" height="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorShad">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="firstImageView" destination="f0B-Pg-Pvm" id="5A0-9I-tKl"/>
                                     <outlet property="friendNameLabel" destination="ipb-Fb-Mec" id="peE-NJ-TAf"/>
@@ -135,6 +148,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KAM-6t-1hF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6u-8t-Z4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,31 +255,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="us0-cp-bai">
-                            <size key="itemSize" width="150" height="150"/>
+                            <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCollectionCell" id="vQr-ZM-3Wn" customClass="FriendsCollectionViewCell" customModule="UI_homeWork" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_photo" translatesAutoresizingMaskIntoConstraints="NO" id="H1g-hd-g7o">
-                                            <rect key="frame" x="25" y="25" width="100" height="100"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1no-img" translatesAutoresizingMaskIntoConstraints="NO" id="H1g-hd-g7o">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="9S8-q5-mkh"/>
-                                                <constraint firstAttribute="height" constant="100" id="fDN-h8-rc9"/>
+                                                <constraint firstAttribute="width" constant="200" id="973-pl-4tW"/>
+                                                <constraint firstAttribute="height" constant="200" id="HVJ-jz-jzH"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="H1g-hd-g7o" firstAttribute="centerX" secondItem="vQr-ZM-3Wn" secondAttribute="centerX" id="73A-Hx-yce"/>
-                                    <constraint firstItem="H1g-hd-g7o" firstAttribute="centerY" secondItem="vQr-ZM-3Wn" secondAttribute="centerY" id="BHR-vh-tlh"/>
+                                    <constraint firstItem="H1g-hd-g7o" firstAttribute="centerX" secondItem="vQr-ZM-3Wn" secondAttribute="centerX" id="f6z-nN-lei"/>
+                                    <constraint firstItem="H1g-hd-g7o" firstAttribute="centerY" secondItem="vQr-ZM-3Wn" secondAttribute="centerY" id="ors-0S-5iG"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="H1g-hd-g7o" id="Zxm-ax-u5J"/>
@@ -278,7 +294,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4D-Ua-4cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="-330.16304347826087"/>
+            <point key="canvasLocation" x="3228.985507246377" y="-330.80357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sF0-NB-tGZ">
@@ -318,7 +334,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="empty_photo" width="200" height="200"/>
+        <image name="1no-img" width="500" height="500"/>
         <image name="logo" width="178" height="181"/>
     </resources>
 </document>

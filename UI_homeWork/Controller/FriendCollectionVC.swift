@@ -35,7 +35,7 @@ class FriendCollectionVC: UICollectionViewController {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCollectionCell", for: indexPath) as? FriendsCollectionViewCell else {fatalError("Ячейка не может быть переиспользована")}
         
-        cell.imageView.image = photoArray[indexPath.row]
+        cell.imageView.image = photoArray[indexPath.item]
         
         
         return cell

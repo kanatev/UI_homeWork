@@ -8,10 +8,8 @@
 
 import UIKit
 
-class FriendsTableVC: UITableViewController {
+@IBDesignable class FriendsTableVC: UITableViewController {
 
-    
-    
     var friendsArray = UserStruct.createFriendsArray()
 
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
@@ -27,7 +25,6 @@ class FriendsTableVC: UITableViewController {
                 friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
             }
         }
-
     }
     
     // Оставлю для новостной ленты
@@ -73,7 +70,7 @@ class FriendsTableVC: UITableViewController {
         
         cell.friendNameLabel.text = friendsArray[indexPath.row].name
         cell.photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
-
+        
         return cell
     }
 
