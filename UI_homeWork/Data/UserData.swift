@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-    
-
-//var sample = ["Женя", "Маша", "Лиза", "Вика", "Наташа", "Даша", "Оля", "Марина", "Лера", "Настя", "Таня", "Яна"]
 
 let photoSetJenya: [UIImage] = [UIImage (named: "dog1")!,
                                 UIImage (named: "dog2")!,
@@ -34,10 +31,16 @@ let photoSetMasha: [UIImage] = [UIImage (named: "racoon1")!,
 var friendsArray: [UserStruct] = [
     UserStruct(name: "Женя", avatar: UIImage(named: "Женя"), photoArray: photoSetJenya),
     UserStruct(name: "Маша", avatar: UIImage(named: "Маша"), photoArray: photoSetMasha),
-    UserStruct(name: "Лиза", avatar: UIImage(named: "Лиза"))
+    UserStruct(name: "Вика", avatar: UIImage(named: "Вика")),
+    UserStruct(name: "Наташа", avatar: UIImage(named: "Наташа")),
+    UserStruct(name: "Даша", avatar: UIImage(named: "Даша")),
+    UserStruct(name: "Оля", avatar: UIImage(named: "Оля")),
+    UserStruct(name: "Марина", avatar: UIImage(named: "Марина")),
+    UserStruct(name: "Лера", avatar: UIImage(named: "Лера")),
+    UserStruct(name: "Настя", avatar: UIImage(named: "Настя")),
+    UserStruct(name: "Таня", avatar: UIImage(named: "Таня")),
+    UserStruct(name: "Яна", avatar: UIImage(named: "Яна"))
 ]
-
-
 
 
 var groupsArray: [GroupStruct] = [
@@ -48,8 +51,7 @@ var groupsArray: [GroupStruct] = [
 ]
 
 
-
-let AllGroupsArray: [GroupStruct] = [
+let allGroupsArray: [GroupStruct] = [
     GroupStruct(groupName: "Science", groupAvatar: UIImage (named: "Science")),
     GroupStruct(groupName: "Steampunk", groupAvatar: UIImage (named: "Steampunk")),
     GroupStruct(groupName: "Travel", groupAvatar: UIImage (named: "Travel"))

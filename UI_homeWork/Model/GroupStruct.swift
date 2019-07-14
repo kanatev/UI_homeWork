@@ -26,9 +26,8 @@ struct GroupStruct: Equatable {
     }
     
     static func createAddGroupsArray() -> [GroupStruct] {
-        return AllGroupsArray
+        return allGroupsArray
     }
-    
     
 }
 

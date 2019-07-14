@@ -12,6 +12,8 @@ import UIKit
 
 class FriendsTableVC: UITableViewController {
 
+    
+    
     var friendsArray = UserStruct.createFriendsArray()
 
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
@@ -66,17 +68,30 @@ class FriendsTableVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
-        cell.textLabel?.text = friendsArray[indexPath.row].name
-        cell.imageView?.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         
-        // настраиваем скругление фото
-        cell.imageView?.layer.borderColor = UIColor.black.cgColor
-        cell.imageView?.layer.borderWidth = 1.0
-        cell.imageView?.layer.masksToBounds = false
-        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
-        cell.imageView?.clipsToBounds = true
+        cell.friendNameLabel.text = friendsArray[indexPath.row].name
         
+        cell.firstImageView.layer.masksToBounds = false
+        cell.firstImageView.layer.shadowColor = UIColor.black.cgColor
+        cell.firstImageView.layer.shadowOffset = CGSize.init(width: 5, height: 5)
+        cell.firstImageView.layer.shadowOpacity = 0.5
+        cell.firstImageView.layer.shadowRadius = 3
+        
+        let borderView = UIView()
+        borderView.frame = CGRect.init(x: 10, y: 10, width: 80, height: 80)
+        borderView.layer.cornerRadius = borderView.frame.height/2
+        borderView.layer.borderColor = UIColor.black.cgColor
+        borderView.layer.borderWidth = 0.1
+        //обрезаем по кругу
+        borderView.layer.masksToBounds = true
+        cell.firstImageView.addSubview(borderView)
+
+        let photoView = UIImageView()
+        photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+        photoView.frame = borderView.bounds
+        borderView.addSubview(photoView)
+
         return cell
     }
 
