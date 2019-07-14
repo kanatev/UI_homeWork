@@ -6,8 +6,6 @@
 //  Copyright © 2019 Aleksei Kanatev. All rights reserved.
 //
 
-// отправляю на проверку
-
 import UIKit
 
 class FriendsTableVC: UITableViewController {
@@ -32,20 +30,24 @@ class FriendsTableVC: UITableViewController {
 
     }
     
+    // Оставлю для новостной ленты
+    //--------------------------------------------------------------------
     // refresh control
-//    var myRefreshControl: UIRefreshControl {
-//        let refControl = UIRefreshControl()
-//        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
-//        return refControl
-//    }
+    //    var myRefreshControl: UIRefreshControl {
+    //        let refControl = UIRefreshControl()
+    //        refControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+    //        return refControl
+    //    }
     
     // action для refresh control
-//    @objc private func refresh(sender: UIRefreshControl) {
-//        let str = "Новый друг номер: \(friendsArray.count)"
-//        friendsArray.append(str)
-//        self.tableView.reloadData()
-//        sender.endRefreshing()
-//    }
+    //    @objc private func refresh(sender: UIRefreshControl) {
+    //        let str = "Новый друг номер: \(friendsArray.count)"
+    //        friendsArray.append(str)
+    //        self.tableView.reloadData()
+    //        sender.endRefreshing()
+    //    }
+    //--------------------------------------------------------------------
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,31 +68,11 @@ class FriendsTableVC: UITableViewController {
         return friendsArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         
         cell.friendNameLabel.text = friendsArray[indexPath.row].name
-        
-        cell.firstImageView.layer.masksToBounds = false
-        cell.firstImageView.layer.shadowColor = UIColor.black.cgColor
-        cell.firstImageView.layer.shadowOffset = CGSize.init(width: 5, height: 5)
-        cell.firstImageView.layer.shadowOpacity = 0.5
-        cell.firstImageView.layer.shadowRadius = 3
-        
-        let borderView = UIView()
-        borderView.frame = CGRect.init(x: 10, y: 10, width: 80, height: 80)
-        borderView.layer.cornerRadius = borderView.frame.height/2
-        borderView.layer.borderColor = UIColor.black.cgColor
-        borderView.layer.borderWidth = 0.1
-        //обрезаем по кругу
-        borderView.layer.masksToBounds = true
-        cell.firstImageView.addSubview(borderView)
-
-        let photoView = UIImageView()
-        photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
-        photoView.frame = borderView.bounds
-        borderView.addSubview(photoView)
+        cell.photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
 
         return cell
     }
