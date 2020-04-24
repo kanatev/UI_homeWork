@@ -96,28 +96,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77o-vl-UsQ" customClass="ShadowView2" customModule="UI_homeWork" customModuleProvider="target">
-                                            <rect key="frame" x="274" y="4" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="viewBackgroundColor">
-                                                    <color key="value" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                    <real key="value" value="22"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-Pg-Pvm">
                                             <rect key="frame" x="5" y="0.0" width="99.5" height="99.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="f0B-Pg-Pvm" secondAttribute="height" multiplier="1:1" id="MVD-9f-eGn"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView2" customModule="UI_homeWork" customModuleProvider="target">
+                                            <rect key="frame" x="296" y="4" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="f0B-Pg-Pvm" firstAttribute="leading" secondItem="nen-Hn-vYl" secondAttribute="leading" constant="5" id="7nZ-Ya-ua7"/>
@@ -132,7 +121,7 @@
                                 <connections>
                                     <outlet property="firstImageView" destination="f0B-Pg-Pvm" id="5A0-9I-tKl"/>
                                     <outlet property="friendNameLabel" destination="ipb-Fb-Mec" id="peE-NJ-TAf"/>
-                                    <outlet property="shadowView" destination="77o-vl-UsQ" id="UIF-Pl-pAG"/>
+                                    <outlet property="shadowView" destination="2dF-Xe-gQc" id="J8c-6m-JCt"/>
                                     <segue destination="ySB-OQ-efL" kind="show" identifier="goToFriendCollectionVC" id="IaF-oa-EPZ"/>
                                 </connections>
                             </tableViewCell>

@@ -24,19 +24,19 @@ import UIKit
     //        super.init(coder: aDecoder)
     //    }
     
-    @IBInspectable var viewBackgroundColor: UIColor = .black {
+    @IBInspectable var viewBackgroundColor: UIColor = .clear {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    @IBInspectable var shadowOpacity: Float = 0.5 {
+    @IBInspectable var shadowOpacity: Float = 1 {
         didSet {
             setNeedsDisplay()
         }
     }
     
-    @IBInspectable var shadowRadius: CGFloat = 8 {
+    @IBInspectable var shadowRadius: CGFloat = 22 {
         didSet {
             setNeedsDisplay()
         }
