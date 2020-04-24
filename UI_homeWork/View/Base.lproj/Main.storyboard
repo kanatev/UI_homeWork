@@ -102,6 +102,11 @@
                                                 <constraint firstAttribute="width" secondItem="f0B-Pg-Pvm" secondAttribute="height" multiplier="1:1" id="MVD-9f-eGn"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77o-vl-UsQ" customClass="ShadowImageView2" customModule="UI_homeWork" customModuleProvider="target">
+                                            <rect key="frame" x="281" y="10" width="113" height="78"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="f0B-Pg-Pvm" firstAttribute="leading" secondItem="nen-Hn-vYl" secondAttribute="leading" constant="5" id="7nZ-Ya-ua7"/>
@@ -113,20 +118,6 @@
                                         <constraint firstAttribute="bottom" secondItem="f0B-Pg-Pvm" secondAttribute="bottom" constant="0.5" id="fXa-7x-kNf"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="opacityShad">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusShad">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="offsetShad">
-                                        <size key="value" width="3" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorShad">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="firstImageView" destination="f0B-Pg-Pvm" id="5A0-9I-tKl"/>
                                     <outlet property="friendNameLabel" destination="ipb-Fb-Mec" id="peE-NJ-TAf"/>

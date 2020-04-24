@@ -12,7 +12,7 @@ class FriendsTableViewCell: UITableViewCell {
     
 //    @IBOutlet var firstImageView: UIImageView!
     @IBOutlet var firstImageView: UIImageView!
-    @IBOutlet var teststststst: ShadowView!
+    @IBOutlet var teststststst: ProbaShadowView!
     @IBOutlet var friendNameLabel: UILabel!
    
     var photoView = UIImageView()

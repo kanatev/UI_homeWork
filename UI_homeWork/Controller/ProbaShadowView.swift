@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@IBDesignable class ShadowView: UIView {
+@IBDesignable class ProbaShadowView: UIImageView {
     
     var photoView2 = UIImageView()
     var borderView2 = UIView()
