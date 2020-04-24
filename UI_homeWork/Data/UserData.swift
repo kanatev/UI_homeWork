@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// Отправляю на проверку
 
 let photoSetJenya: [UIImage] = [UIImage (named: "dog1")!,
                                 UIImage (named: "dog2")!,

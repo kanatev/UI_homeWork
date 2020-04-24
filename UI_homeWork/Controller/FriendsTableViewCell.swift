@@ -8,9 +8,11 @@
 
 import UIKit
 
-@IBDesignable class FriendsTableViewCell: UITableViewCell {
+class FriendsTableViewCell: UITableViewCell {
     
+//    @IBOutlet var firstImageView: UIImageView!
     @IBOutlet var firstImageView: UIImageView!
+    @IBOutlet var teststststst: ShadowView!
     @IBOutlet var friendNameLabel: UILabel!
    
     var photoView = UIImageView()
@@ -34,6 +36,7 @@ import UIKit
         }
         set {
             self.layer.shadowRadius = CGFloat(newValue)
+            setNeedsDisplay()
         }
     }
     
@@ -43,14 +46,17 @@ import UIKit
             get {
                 if let color = layer.shadowColor {
                     return UIColor(cgColor: color)
+                    
                 }
                 return nil
             }
             set {
                 if let color = newValue {
                     layer.shadowColor = color.cgColor
+                    setNeedsDisplay()
                 } else {
                     layer.shadowColor = nil
+                    setNeedsDisplay()
                 }
             }
         }
@@ -62,6 +68,7 @@ import UIKit
         }
         set {
             self.layer.shadowOffset = newValue
+            setNeedsDisplay()
         }
     }
     
@@ -98,4 +105,8 @@ import UIKit
         // Configure the view for the selected state
     }
 
+    
+    
 }
+
+
