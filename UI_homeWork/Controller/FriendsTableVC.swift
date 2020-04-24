@@ -49,6 +49,8 @@ import UIKit
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.refreshControl = myRefreshControl
+        self.modalPresentationStyle = .fullScreen
+//        self.navigationController?.modalPresentationStyle = .fullScreen
         
         // задаем высоту ячейки
         self.tableView.rowHeight = 100
