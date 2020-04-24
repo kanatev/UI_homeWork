@@ -12,12 +12,12 @@ class FriendsTableViewCell: UITableViewCell {
     
     @IBOutlet var firstImageView: UIImageView!
     @IBOutlet var friendNameLabel: UILabel!
-    @IBOutlet weak var shadowView: ShadowView2!
+    @IBOutlet weak var shadowView: ShadowView3!
     //
     
-    var photoView = UIImageView()
-    var borderView = UIView()
-//
+//    var photoView = UIImageView()
+//    var borderView = UIView()
+////
 //    // выносим в сториборд настройку прозрачности тени
 //    @IBInspectable var opacityShad: Float {
 //        get {
@@ -100,23 +100,22 @@ class FriendsTableViewCell: UITableViewCell {
         
 //        firstImageView.layer.masksToBounds = false
         
-        borderView.frame = CGRect.init(x: 5, y: 5, width: 80, height: 80)
-        borderView.layer.cornerRadius = borderView.frame.height/2
-        borderView.layer.borderColor = UIColor.green.cgColor
-//        borderView.backgroundColor = UIColor.green
-        borderView.layer.borderWidth = 5
-        borderView.layer.masksToBounds = true
-        shadowView.addSubview(borderView)
+//        borderView.frame = CGRect.init(x: 5, y: 5, width: 80, height: 80)
+//        borderView.layer.cornerRadius = borderView.frame.height/2
+//        borderView.layer.borderColor = UIColor.green.cgColor
+//        borderView.layer.borderWidth = 5
+//        borderView.layer.masksToBounds = true
+//        shadowView.addSubview(borderView)
 //        firstImageView.addSubview(borderView)
 
 //        borderView.frame = shadowView.bounds //может тут проблема
 //        borderView.layer.cornerRadius = shadowView.layer.cornerRadius
 //        borderView.layer.masksToBounds = true
 //        shadowView.addSubview(borderView)
-        
-        photoView.frame = borderView.bounds
-        photoView.layer.masksToBounds = false
-        borderView.addSubview(photoView)
+//
+//        photoView.frame = borderView.bounds
+//        photoView.layer.masksToBounds = false
+//        borderView.addSubview(photoView)
 ////
 
 //        cellConfigure()

@@ -1,5 +1,5 @@
 //
-//  ShadowImageView.swift
+//  ShadowView3.swift
 //  UI_homeWork
 //
 //  Created by Aleksei Kanatev on 24.04.2020.
@@ -8,34 +8,23 @@
 
 import UIKit
 
-@IBDesignable class ShadowView2: UIView {
+@IBDesignable class ShadowView3: UIView {
     
     var shadowLayer: CAShapeLayer!
-//    var borderView: UIView!
+    var imageView = UIImageView()
+    var borderView = UIView()
     
-//    private var imageView: UIImageView!
-//    var imageView = UIImageView()
-    //    self.photo = UIImage (named: "empty_photo")
-    
-    //    required init?(coder aDecoder: (NSCoder?))  {
-    //        super.init(coder: aDecoder!)
-    //    }
-    
-    //    required init?(coder aDecoder: NSCoder)  {
-    //        super.init(coder: aDecoder)
-    //    }
-
     @IBInspectable var viewBackgroundColor: UIColor = .clear {
         didSet {
             setNeedsDisplay()
         }
     }
     
-//    @IBInspectable var image: UIImage = UIImage(named: "empty_photo")! {
-//        didSet {
-//            setNeedsDisplay()
-//        }
-//    }
+    @IBInspectable var image1: UIImage? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     @IBInspectable var shadowOpacity: Float = 1 {
         didSet {
@@ -56,7 +45,7 @@ import UIKit
     }
     
     @IBInspectable var shadowOffset: CGSize = CGSize.zero {
-//    @IBInspectable var shadowOffset: CGSize{
+        //    @IBInspectable var shadowOffset: CGSize{
         didSet {
             setNeedsDisplay()
         }
@@ -71,7 +60,6 @@ import UIKit
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height / 2).cgPath
             shadowLayer.fillColor = viewBackgroundColor.cgColor
             
-//            shadowLayer.ima
             shadowLayer.shadowColor = shadowColor.cgColor
             shadowLayer.shadowPath = shadowLayer.path
             shadowLayer.shadowOffset = shadowOffset
@@ -80,8 +68,19 @@ import UIKit
             
             layer.addSublayer(shadowLayer)
         }
-//        image =
-//        imageView.frame = self.shadowLayer.frame
-//        imageView.image = UIImage(named: "empty_photo")
+        
+        borderView.frame = CGRect.init(x: 5, y: 5, width: 80, height: 80)
+        borderView.layer.cornerRadius = borderView.frame.height/2
+        borderView.layer.borderColor = UIColor.lightGray.cgColor
+        borderView.layer.borderWidth = 1
+        borderView.layer.masksToBounds = true
+        self.addSubview(borderView)
+        
+        imageView.frame = CGRect.init(x: 0, y: 0, width: 80, height: 80)
+        imageView.backgroundColor = .red
+        imageView.image = image1
+        borderView.addSubview(imageView)
+
     }
+    
 }

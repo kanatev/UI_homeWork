@@ -70,7 +70,7 @@ import UIKit
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         
         cell.friendNameLabel.text = friendsArray[indexPath.row].name
-        cell.photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
         
         return cell
     }
