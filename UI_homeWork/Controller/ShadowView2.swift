@@ -8,9 +8,21 @@
 
 import UIKit
 
-@IBDesignable class ShadowImageView2: UIView {
-
-    private var shadowLayer: CAShapeLayer!
+@IBDesignable class ShadowView2: UIView {
+    
+    var shadowLayer: CAShapeLayer!
+    
+//    private var imageView: UIImageView!
+//    var imageView = UIImageView()
+    //    self.photo = UIImage (named: "empty_photo")
+    
+    //    required init?(coder aDecoder: (NSCoder?))  {
+    //        super.init(coder: aDecoder!)
+    //    }
+    
+    //    required init?(coder aDecoder: NSCoder)  {
+    //        super.init(coder: aDecoder)
+    //    }
     
     @IBInspectable var viewBackgroundColor: UIColor = .black {
         didSet {
@@ -37,6 +49,7 @@ import UIKit
     }
     
     @IBInspectable var shadowOffset: CGSize = CGSize.zero {
+//    @IBInspectable var shadowOffset: CGSize{
         didSet {
             setNeedsDisplay()
         }
@@ -60,7 +73,8 @@ import UIKit
             
             layer.addSublayer(shadowLayer)
         }
+        
+//        imageView.frame = self.shadowLayer.frame
+//        imageView.image = UIImage(named: "empty_photo")
     }
-    
-
 }
