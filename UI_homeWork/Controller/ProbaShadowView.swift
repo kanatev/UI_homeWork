@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@IBDesignable class ShadowView: UIView {
+@IBDesignable class ProbaShadowView: UIView {
     
     var photoView2 = UIImageView()
     var borderView2 = UIView()
@@ -80,6 +80,7 @@ import UIKit
             self.layer.shadowOpacity = opacity1
             self.layer.shadowRadius = radius2
             
+            // заменил borderView2 на self
             borderView2.frame = CGRect.init(x: 10, y: 10, width: 80, height: 80)
             borderView2.layer.cornerRadius = borderView2.frame.height/2
             borderView2.layer.borderColor = UIColor.black.cgColor
@@ -87,7 +88,8 @@ import UIKit
             borderView2.layer.masksToBounds = true //обрезаем по кругу
             self.addSubview(borderView2)
             
-            photoView2.frame = borderView2.bounds
+            photoView2.frame = self.bounds
+//            photoView2.image = UIImage (named: "Travel")!
             borderView2.addSubview(photoView2)
     
     }

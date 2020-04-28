@@ -5,7 +5,6 @@
 //  Created by Aleksei Kanatev on 03/07/2019.
 //  Copyright © 2019 Aleksei Kanatev. All rights reserved.
 //
-
 import UIKit
 
 @IBDesignable class FriendsTableVC: UITableViewController {
@@ -71,7 +70,7 @@ import UIKit
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
         
         cell.friendNameLabel.text = friendsArray[indexPath.row].name
-        cell.photoView.image = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
         
         return cell
     }

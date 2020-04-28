@@ -90,46 +90,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipb-Fb-Mec">
-                                            <rect key="frame" x="112.5" y="35" width="273.5" height="30"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView3" customModule="UI_homeWork" customModuleProvider="target">
+                                            <rect key="frame" x="9" y="5" width="90" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="image1" value="Настя"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipb-Fb-Mec">
+                                            <rect key="frame" x="120" y="35" width="261" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-Pg-Pvm">
-                                            <rect key="frame" x="5" y="0.0" width="99.5" height="99.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="f0B-Pg-Pvm" secondAttribute="height" multiplier="1:1" id="MVD-9f-eGn"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="f0B-Pg-Pvm" firstAttribute="leading" secondItem="nen-Hn-vYl" secondAttribute="leading" constant="5" id="7nZ-Ya-ua7"/>
-                                        <constraint firstItem="ipb-Fb-Mec" firstAttribute="top" secondItem="nen-Hn-vYl" secondAttribute="topMargin" constant="24" id="9xF-Eg-rWE"/>
-                                        <constraint firstItem="ipb-Fb-Mec" firstAttribute="leading" secondItem="f0B-Pg-Pvm" secondAttribute="trailing" constant="8" id="FnT-W6-bWt"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="ipb-Fb-Mec" secondAttribute="trailing" constant="8" id="R0O-eW-xw8"/>
-                                        <constraint firstItem="f0B-Pg-Pvm" firstAttribute="top" secondItem="nen-Hn-vYl" secondAttribute="top" id="aEH-VO-ke3"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="ipb-Fb-Mec" secondAttribute="bottom" constant="24" id="eZ5-G1-EfP"/>
-                                        <constraint firstAttribute="bottom" secondItem="f0B-Pg-Pvm" secondAttribute="bottom" constant="0.5" id="fXa-7x-kNf"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="opacityShad">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusShad">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="offsetShad">
-                                        <size key="value" width="3" height="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="colorShad">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="firstImageView" destination="f0B-Pg-Pvm" id="5A0-9I-tKl"/>
                                     <outlet property="friendNameLabel" destination="ipb-Fb-Mec" id="peE-NJ-TAf"/>
+                                    <outlet property="shadowView" destination="2dF-Xe-gQc" id="J8c-6m-JCt"/>
                                     <segue destination="ySB-OQ-efL" kind="show" identifier="goToFriendCollectionVC" id="IaF-oa-EPZ"/>
                                 </connections>
                             </tableViewCell>
@@ -337,5 +317,6 @@
     <resources>
         <image name="1no-img" width="500" height="500"/>
         <image name="logo" width="178" height="181"/>
+        <image name="Настя" width="197" height="200"/>
     </resources>
 </document>
