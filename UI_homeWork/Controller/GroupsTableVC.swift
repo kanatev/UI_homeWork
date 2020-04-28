@@ -23,6 +23,7 @@ class GroupsTableVC: UITableViewController {
         // регистрируем кастомную XIB'ную ячейку
         let xibCellNib = UINib(nibName: "XibCell", bundle: nil)
         self.tableView.register(xibCellNib, forCellReuseIdentifier: "XibCell")
+//        self.tableView.register(<#T##nib: UINib?##UINib?#>, forHeaderFooterViewReuseIdentifier: <#T##String#>)
         
         // задаем высоту ячейки
         self.tableView.rowHeight = 50
@@ -95,6 +96,9 @@ class GroupsTableVC: UITableViewController {
         }
     }
 }
+
+
+
 
 // убираем постоянное выделение ячейки
 extension GroupsTableVC {

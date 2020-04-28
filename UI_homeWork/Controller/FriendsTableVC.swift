@@ -10,6 +10,8 @@ import UIKit
 @IBDesignable class FriendsTableVC: UITableViewController {
 
     var friendsArray = UserStruct.createFriendsArray()
+    var firstCharecters = [Character]()
+    var sortedFriendsArray: [Character:[UserStruct]] = [:]
 
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -45,8 +47,13 @@ import UIKit
     //--------------------------------------------------------------------
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // объединяем массивы в кортеж и приравниваем к результату sort
+        (firstCharecters, sortedFriendsArray) = sort(friendsArray)
+        
 //        self.refreshControl = myRefreshControl
         self.modalPresentationStyle = .fullScreen
 //        self.navigationController?.modalPresentationStyle = .fullScreen
@@ -59,22 +66,70 @@ import UIKit
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return firstCharecters.count
+//        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsArray.count
+        let character = firstCharecters[section]
+        let friendsCount = sortedFriendsArray[character]?.count
+        return friendsCount ?? 0
+//        return friendsArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
-        
-        cell.friendNameLabel.text = friendsArray[indexPath.row].name
-        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
-        
-        return cell
+        let character = firstCharecters[indexPath.section]
+        if let friends = sortedFriendsArray[character]{
+            cell.friendNameLabel.text = friends[indexPath.row].name
+            cell.shadowView.image1 = friends[indexPath.row].avatar
+            
+            return cell
+        }
+//
+//        cell.friendNameLabel.text = friendsArray[indexPath.row].name
+//        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+//
+        return UITableViewCell()
+//        return cell
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let character = firstCharecters[section]
+        return String(character)
+    }
+    
+//        override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//            tableView.dequeueReusableHeaderFooterView(withIdentifier: )
+//        }
+    
+    
+    // Func for sorting friends
+    
+    /// Функция сортировки друзей
+    /// - Parameter friends: принимает массив друзей
+    /// - Returns: возвращает кортеж
+    private func sort(_ friends: [UserStruct]) -> (characters: [Character], sortedCharacters: [Character:[UserStruct]]) {
+        
+        var characters = [Character]()
+        var sortedPeople = [Character: [UserStruct]]()
+        
+        friendsArray.forEach { friend in
+            guard let character = friend.name.first else { return }
+            if var thisCharFriends = sortedPeople[character] {
+                thisCharFriends.append(friend)
+                sortedPeople[character] = thisCharFriends
+            } else {
+                sortedPeople[character] = [friend]
+                characters.append(character)
+            }
+        }
+        
+        characters.sort()
+        
+        return (characters, sortedPeople)
+    }
+    
 }
 
 

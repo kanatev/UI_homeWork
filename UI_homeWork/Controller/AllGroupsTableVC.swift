@@ -117,5 +117,7 @@ class AllGroupsTableVC: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Groups"
+    }
 }
