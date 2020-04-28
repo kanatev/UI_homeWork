@@ -90,22 +90,40 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView3" customModule="UI_homeWork" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView3" customModule="UI_homeWork" customModuleProvider="target">
                                             <rect key="frame" x="9" y="5" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="2dF-Xe-gQc" secondAttribute="height" multiplier="1:1" id="N1Y-iQ-Zm1"/>
+                                            </constraints>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="image" keyPath="image1" value="Настя"/>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="image1" value="Portman"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="0.59999999999999998"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                    <size key="value" width="0.0" height="0.0"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipb-Fb-Mec">
-                                            <rect key="frame" x="120" y="35" width="261" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipb-Fb-Mec">
+                                            <rect key="frame" x="114" y="35" width="267" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2dF-Xe-gQc" firstAttribute="centerY" secondItem="nen-Hn-vYl" secondAttribute="centerY" id="7Ip-gc-OXm"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ipb-Fb-Mec" secondAttribute="trailing" constant="13" id="NLp-sw-uBt"/>
+                                        <constraint firstItem="2dF-Xe-gQc" firstAttribute="leading" secondItem="nen-Hn-vYl" secondAttribute="leadingMargin" constant="-11" id="Qzc-cg-NJP"/>
+                                        <constraint firstItem="ipb-Fb-Mec" firstAttribute="leading" secondItem="2dF-Xe-gQc" secondAttribute="trailing" constant="15" id="kpz-lB-gqN"/>
+                                        <constraint firstItem="2dF-Xe-gQc" firstAttribute="top" secondItem="nen-Hn-vYl" secondAttribute="topMargin" constant="-6" id="nYh-PC-dM1"/>
+                                        <constraint firstItem="2dF-Xe-gQc" firstAttribute="centerY" secondItem="ipb-Fb-Mec" secondAttribute="centerY" id="rxU-vZ-A48"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="friendNameLabel" destination="ipb-Fb-Mec" id="peE-NJ-TAf"/>
@@ -316,7 +334,7 @@
     </scenes>
     <resources>
         <image name="1no-img" width="500" height="500"/>
+        <image name="Portman" width="224" height="225"/>
         <image name="logo" width="178" height="181"/>
-        <image name="Настя" width="197" height="200"/>
     </resources>
 </document>
