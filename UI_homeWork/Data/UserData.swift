@@ -123,3 +123,5 @@ let allGroupsArray: [GroupStruct] = [
     GroupStruct(groupName: "Steampunk", groupAvatar: UIImage (named: "Steampunk")),
     GroupStruct(groupName: "Travel", groupAvatar: UIImage (named: "Travel"))
 ]
+
+//proverka
