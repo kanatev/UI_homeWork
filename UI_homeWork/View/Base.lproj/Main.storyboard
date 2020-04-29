@@ -161,23 +161,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="m0R-I2-tUD">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="ORT-9M-yjk">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header таблицы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wl4-Lp-RCC">
-                                    <rect key="frame" x="142.5" y="11.5" width="129" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="Wl4-Lp-RCC" firstAttribute="centerY" secondItem="m0R-I2-tUD" secondAttribute="centerY" id="tWN-Tm-8IL"/>
-                                <constraint firstItem="Wl4-Lp-RCC" firstAttribute="centerX" secondItem="m0R-I2-tUD" secondAttribute="centerX" id="yfo-mg-K08"/>
-                            </constraints>
-                        </view>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="YLC-HV-r1r">
                                 <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
@@ -205,6 +193,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ourSearchBar" destination="ORT-9M-yjk" id="Fsp-t4-2p8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSS-6I-wWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
