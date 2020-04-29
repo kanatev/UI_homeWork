@@ -103,7 +103,8 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //             Delete the row from the data source
-            groupsArray.remove(at: indexPath.row)
+            self.filteredArray.remove(at: indexPath.row)
+            self.groupsArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
