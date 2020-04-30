@@ -7,12 +7,13 @@
 //
 import UIKit
 
-@IBDesignable class FriendsTableVC: UITableViewController {
-
+@IBDesignable class FriendsTableVC: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var ourSearchBar: UISearchBar!
+    
     var friendsArray = UserStruct.createFriendsArray()
-    var firstCharecters = [Character]()
-    var sortedFriendsArray: [Character:[UserStruct]] = [:]
-
+    var firstCharacters = [Character]()
+    var sortedFriendsDict: [Character:[UserStruct]] = [:]
+    
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -21,7 +22,7 @@ import UIKit
         if segue.identifier == "goToFriendCollectionVC" {
             let friendDestination: FriendCollectionVC = segue.destination as! FriendCollectionVC
             let friendSource = segue.source as! FriendsTableVC
-
+            
             if let indexPath = friendSource.tableView.indexPathForSelectedRow {
                 friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
             }
@@ -50,58 +51,59 @@ import UIKit
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ourSearchBar.delegate = self
         
-        // объединяем массивы в кортеж и приравниваем к результату sort
-        (firstCharecters, sortedFriendsArray) = sort(friendsArray)
+        // объединяем массивы в кортеж и присваиваем результат sort()
+        (firstCharacters, sortedFriendsDict) = sort(friendsArray)
         
-//        self.refreshControl = myRefreshControl
+        //        self.refreshControl = myRefreshControl
         self.modalPresentationStyle = .fullScreen
-//        self.navigationController?.modalPresentationStyle = .fullScreen
+        //        self.navigationController?.modalPresentationStyle = .fullScreen
         
         // задаем высоту ячейки
         self.tableView.rowHeight = 100
         
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return firstCharecters.count
-//        return 1
+        return firstCharacters.count
+        //        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let character = firstCharecters[section]
-        let friendsCount = sortedFriendsArray[character]?.count
+        let character = firstCharacters[section]
+        let friendsCount = sortedFriendsDict[character]?.count
         return friendsCount ?? 0
-//        return friendsArray.count
+        //        return friendsArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableViewCell
-        let character = firstCharecters[indexPath.section]
-        if let friends = sortedFriendsArray[character]{
+        let character = firstCharacters[indexPath.section]
+        if let friends = sortedFriendsDict[character]{
             cell.friendNameLabel.text = friends[indexPath.row].name
             cell.shadowView.image1 = friends[indexPath.row].avatar
             
             return cell
         }
-//
-//        cell.friendNameLabel.text = friendsArray[indexPath.row].name
-//        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
-//
+        //
+        //        cell.friendNameLabel.text = friendsArray[indexPath.row].name
+        //        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
+        //
         return UITableViewCell()
-//        return cell
+        //        return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let character = firstCharecters[section]
+        let character = firstCharacters[section]
         return String(character)
     }
     
-//        override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//            tableView.dequeueReusableHeaderFooterView(withIdentifier: )
-//        }
+    //        override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    //            tableView.dequeueReusableHeaderFooterView(withIdentifier: )
+    //        }
     
     
     // Func for sorting friends
@@ -114,7 +116,8 @@ import UIKit
         var characters = [Character]()
         var sortedPeople = [Character: [UserStruct]]()
         
-        friendsArray.forEach { friend in
+//        friendsArray.forEach { friend in
+        friends.forEach { friend in
             guard let character = friend.name.first else { return }
             if var thisCharFriends = sortedPeople[character] {
                 thisCharFriends.append(friend)
@@ -129,7 +132,76 @@ import UIKit
         
         return (characters, sortedPeople)
     }
+//
+//    func newSort(){
+//        var chars1 = [Character]()
+//        var sortedPeople1 = [Character:[UserStruct]]()
+//
+//        // перебираем массив UserStruct
+//        for friend in self.friendsArray {
+//            let char = friend.name.first
+//            var thisCharFriends = sortedPeople1[char!]
+//            thisCharFriends!.append(friend)
+//            sortedPeople1[char!] = thisCharFriends
+//
+//        }
+//    }
+//
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchBar.text ?? "nothing entered")
+        (firstCharacters, sortedFriendsDict) = sort(friendsArray)
+        arrayFilterByName()
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.ourSearchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.ourSearchBar.showsCancelButton = false
+        self.ourSearchBar.text = ""
+        (firstCharacters, sortedFriendsDict) = sort(friendsArray)
+        tableView.reloadData()
+        self.ourSearchBar.resignFirstResponder()
+    }
+    
+    func arrayFilterByName(){
+        if self.ourSearchBar.searchTextField.text != ""{
+//            var tmpFriendsDict:[Character:[UserStruct]] = [:]
+//            var tmpFirstCharactersArray = [Character]()
+            var tmpFriendArray:[UserStruct] = []
+            
+            // перебираем массив словарей (секций друзей)
+            for currentDict in self.sortedFriendsDict {
+                let stringInput = self.ourSearchBar.searchTextField.text!.lowercased()
+                
+                // перебираем массив друзей в секции
+                for person in currentDict.value {
+                    var tmpInternalArray:[UserStruct] = []
+                    
+                    if person.name.lowercased().contains(stringInput) {
+                        tmpInternalArray.append(person)
+                    }
+                    if !tmpInternalArray.isEmpty {
+//                        tmpFriendsDict[currentDict.key] = tmpInternalArray
+                        tmpFriendArray.append(contentsOf: tmpInternalArray)
+//                        if !tmpFirstCharactersArray.contains(currentDict.key){
+//                            tmpFirstCharactersArray.append(currentDict.key)
+//                        }
+                    }
+                }
+            }
+
+//            self.sortedFriendsDict = tmpFriendsDict
+//            self.firstCharacters = tmpFirstCharactersArray
+            (firstCharacters, sortedFriendsDict) = sort(tmpFriendArray)
+
+
+        } else {
+            (firstCharacters, sortedFriendsDict) = sort(friendsArray)
+        }
+    }
     
 }
-
-

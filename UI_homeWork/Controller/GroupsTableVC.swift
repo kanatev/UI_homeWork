@@ -112,18 +112,7 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchBar.text ?? "nothing entered")
-        
         arrayFilterByName()
-        
-        //        self.textArrayWithNames = getListOfNames()
-        // поиск по массиву стрингов
-        //        self.filteredTextArrayWithNames = searchText.isEmpty ? textArrayWithNames: textArrayWithNames.filter { (item: String) -> Bool in
-        //            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        //        }
-        
-        
-        
-        
         tableView.reloadData()
     }
     
