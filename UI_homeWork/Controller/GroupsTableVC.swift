@@ -12,9 +12,9 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
     
     var groupsArray = GroupStruct.createGroupsArray()
     var filteredArray:[GroupStruct]!
-    var textArrayWithNames: [String]!
-    var filteredTextArrayWithNames: [String]!
-    
+//    var textArrayWithNames: [String]!
+//    var filteredTextArrayWithNames: [String]!
+//    
     
     @IBAction func exitButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -59,6 +59,8 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
         tableView.reloadData()
     }
     
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -67,7 +69,6 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
         //        return groupsArray.count
         return self.filteredArray.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
@@ -162,6 +163,12 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToAllGroups"{
+            searchBarCancelButtonClicked(self.ourSearchBar)
+        }
+    }
     
     
 }
