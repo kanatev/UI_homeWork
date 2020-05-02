@@ -12,7 +12,7 @@ class NewsTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.rowHeight = 250
     }
 
     // MARK: - Table view data source

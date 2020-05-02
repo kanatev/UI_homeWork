@@ -11,10 +11,12 @@ import UIKit
 class NewsCell: UITableViewCell {
 
     @IBOutlet weak var nameForNews: UILabel!
+    @IBOutlet weak var textOfNews: UILabel!
+    @IBOutlet weak var imageForNews: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        nameForNews.text = "Hello"
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
