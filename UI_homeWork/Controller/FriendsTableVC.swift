@@ -69,14 +69,12 @@ import UIKit
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return firstCharacters.count
-        //        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let character = firstCharacters[section]
         let friendsCount = sortedFriendsDict[character]?.count
         return friendsCount ?? 0
-        //        return friendsArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,12 +86,7 @@ import UIKit
             
             return cell
         }
-        //
-        //        cell.friendNameLabel.text = friendsArray[indexPath.row].name
-        //        cell.shadowView.image1 = friendsArray[indexPath.row].avatar ?? UIImage (named: "empty_photo")!
-        //
         return UITableViewCell()
-        //        return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -116,7 +109,6 @@ import UIKit
         var characters = [Character]()
         var sortedPeople = [Character: [UserStruct]]()
         
-//        friendsArray.forEach { friend in
         friends.forEach { friend in
             guard let character = friend.name.first else { return }
             if var thisCharFriends = sortedPeople[character] {
@@ -149,7 +141,6 @@ import UIKit
 //
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchBar.text ?? "nothing entered")
         (firstCharacters, sortedFriendsDict) = sort(friendsArray)
         arrayFilterByName()
         tableView.reloadData()
@@ -169,8 +160,6 @@ import UIKit
     
     func arrayFilterByName(){
         if self.ourSearchBar.searchTextField.text != ""{
-//            var tmpFriendsDict:[Character:[UserStruct]] = [:]
-//            var tmpFirstCharactersArray = [Character]()
             var tmpFriendArray:[UserStruct] = []
             
             // перебираем массив словарей (секций друзей)
@@ -180,25 +169,15 @@ import UIKit
                 // перебираем массив друзей в секции
                 for person in currentDict.value {
                     var tmpInternalArray:[UserStruct] = []
-                    
                     if person.name.lowercased().contains(stringInput) {
                         tmpInternalArray.append(person)
                     }
                     if !tmpInternalArray.isEmpty {
-//                        tmpFriendsDict[currentDict.key] = tmpInternalArray
                         tmpFriendArray.append(contentsOf: tmpInternalArray)
-//                        if !tmpFirstCharactersArray.contains(currentDict.key){
-//                            tmpFirstCharactersArray.append(currentDict.key)
-//                        }
                     }
                 }
             }
-
-//            self.sortedFriendsDict = tmpFriendsDict
-//            self.firstCharacters = tmpFirstCharactersArray
             (firstCharacters, sortedFriendsDict) = sort(tmpFriendArray)
-
-
         } else {
             (firstCharacters, sortedFriendsDict) = sort(friendsArray)
         }

@@ -10,7 +10,7 @@
         <!--FirstVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="BYZ-38-t0r" customClass="FirstVC" customModule="UI_homeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="BYZ-38-t0r" customClass="FirstVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,10 +73,73 @@
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="20.380434782608699"/>
         </scene>
-        <!--Contacts-->
+        <!--Новости-->
+        <scene sceneID="Hvk-qb-qvN">
+            <objects>
+                <tableViewController id="sDi-yR-kVL" customClass="NewsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="coK-H1-WlU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="WZ4-J5-JBE" customClass="NewsCell" customModule="VK_limiter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WZ4-J5-JBE" id="dnj-wD-ZHf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reg-JY-pli">
+                                            <rect key="frame" x="30" y="14" width="354" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="reg-JY-pli" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leadingMargin" constant="10" id="DbA-kC-Gzt"/>
+                                        <constraint firstItem="reg-JY-pli" firstAttribute="top" secondItem="dnj-wD-ZHf" secondAttribute="topMargin" constant="3" id="ZmJ-QQ-4Ee"/>
+                                        <constraint firstItem="reg-JY-pli" firstAttribute="bottom" secondItem="dnj-wD-ZHf" secondAttribute="bottomMargin" constant="3" id="ZqC-r9-Q07"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="reg-JY-pli" secondAttribute="trailing" constant="10" id="xid-hD-5rz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameForNews" destination="reg-JY-pli" id="dML-tN-QdT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sDi-yR-kVL" id="j3h-2l-oay"/>
+                            <outlet property="delegate" destination="sDi-yR-kVL" id="ZQO-du-T2F"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Новости" id="OiY-7B-Fue"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uSk-jt-6wg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2496" y="-676"/>
+        </scene>
+        <!--Новости-->
+        <scene sceneID="4hj-zw-Pb6">
+            <objects>
+                <navigationController id="G6D-dP-1EN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Новости" image="rectangle.grid.1x2.fill" catalog="system" id="s5h-lo-8Dg"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZbM-cd-mlV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sDi-yR-kVL" kind="relationship" relationship="rootViewController" id="VN4-kZ-tdE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b3d-fI-bVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-676"/>
+        </scene>
+        <!--Контакты-->
         <scene sceneID="Dxb-g9-BUM">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="Pn7-eU-YTQ" customClass="FriendsTableVC" customModule="UI_homeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="Pn7-eU-YTQ" customClass="FriendsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Xtz-2n-yOe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,14 +150,14 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="100" id="iF3-TA-vgv" customClass="FriendsTableViewCell" customModule="UI_homeWork" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="100" id="iF3-TA-vgv" customClass="FriendsTableViewCell" customModule="VK_limiter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.5" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iF3-TA-vgv" id="nen-Hn-vYl">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView3" customModule="UI_homeWork" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-Xe-gQc" customClass="ShadowView3" customModule="VK_limiter" customModuleProvider="target">
                                             <rect key="frame" x="9" y="5" width="90" height="90"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
@@ -141,7 +204,7 @@
                             <outlet property="delegate" destination="Pn7-eU-YTQ" id="TUR-pd-k0W"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="JuG-th-i3O">
+                    <navigationItem key="navigationItem" title="Контакты" id="JuG-th-i3O">
                         <barButtonItem key="leftBarButtonItem" title="Выход" id="8jD-r3-JnY">
                             <connections>
                                 <action selector="exitButton:" destination="Pn7-eU-YTQ" id="fGD-5J-bw6"/>
@@ -158,12 +221,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6u-8t-Z4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498.5507246376815" y="-330.13392857142856"/>
+            <point key="canvasLocation" x="2494" y="19"/>
         </scene>
-        <!--Search-->
+        <!--Группы-->
         <scene sceneID="Xto-fI-fad">
             <objects>
-                <tableViewController modalPresentationStyle="fullScreen" id="PQX-2t-434" customClass="GroupsTableVC" customModule="UI_homeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="PQX-2t-434" customClass="GroupsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jgi-zB-d4b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,7 +251,7 @@
                             <outlet property="delegate" destination="PQX-2t-434" id="RNf-Ft-Nus"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search" id="SE6-Qv-HD9">
+                    <navigationItem key="navigationItem" title="Группы" id="SE6-Qv-HD9">
                         <barButtonItem key="leftBarButtonItem" title="Выход" id="sk3-tb-ZLf">
                             <connections>
                                 <action selector="exitButton:" destination="PQX-2t-434" id="D3n-0s-0TV"/>
@@ -206,12 +269,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSS-6I-wWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2497" y="457"/>
+            <point key="canvasLocation" x="2493" y="721"/>
         </scene>
         <!--All Groups TableVC-->
         <scene sceneID="yNm-XK-xN1">
             <objects>
-                <tableViewController id="KGF-sd-B73" customClass="AllGroupsTableVC" customModule="UI_homeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KGF-sd-B73" customClass="AllGroupsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2T3-sf-eSZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -239,13 +302,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lS-5c-x1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9HM-Ah-88D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3229" y="457"/>
+            <point key="canvasLocation" x="3229" y="721"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Группы-->
         <scene sceneID="m6a-ze-Wce">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="JX7-wU-7Nj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="Snz-Fs-NRW"/>
+                    <tabBarItem key="tabBarItem" title="Группы" image="person.3.fill" catalog="system" id="Snz-Fs-NRW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bZC-Aj-7p9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -257,12 +320,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izp-d8-i8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="457"/>
+            <point key="canvasLocation" x="1761" y="721"/>
         </scene>
         <!--Фотографии друга-->
         <scene sceneID="f8z-cC-mlW">
             <objects>
-                <collectionViewController title="Фотографии друга" id="ySB-OQ-efL" customClass="FriendCollectionVC" customModule="UI_homeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Фотографии друга" id="ySB-OQ-efL" customClass="FriendCollectionVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sXT-XO-Ri4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +337,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCollectionCell" id="vQr-ZM-3Wn" customClass="FriendsCollectionViewCell" customModule="UI_homeWork" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCollectionCell" id="vQr-ZM-3Wn" customClass="FriendsCollectionViewCell" customModule="VK_limiter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -308,13 +371,13 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4D-Ua-4cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3228.985507246377" y="-330.80357142857139"/>
+            <point key="canvasLocation" x="3229" y="20"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Друзья-->
         <scene sceneID="sF0-NB-tGZ">
             <objects>
                 <navigationController modalPresentationStyle="fullScreen" id="TWn-QD-0Gw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="wRZ-JX-cgt"/>
+                    <tabBarItem key="tabBarItem" title="Друзья" image="person.2.fill" catalog="system" id="wRZ-JX-cgt"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gW5-cL-UnD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -326,7 +389,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHE-hD-VxI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="-330"/>
+            <point key="canvasLocation" x="1761" y="20"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CND-oj-FHq">
@@ -338,6 +401,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="G6D-dP-1EN" kind="relationship" relationship="viewControllers" id="odt-pS-B9v"/>
                         <segue destination="TWn-QD-0Gw" kind="relationship" relationship="viewControllers" id="DwN-Oc-tbS"/>
                         <segue destination="JX7-wU-7Nj" kind="relationship" relationship="viewControllers" id="iiA-4G-6Pq"/>
                     </connections>
@@ -351,5 +415,8 @@
         <image name="1no-img" width="500" height="500"/>
         <image name="Portman" width="224" height="225"/>
         <image name="logo" width="178" height="181"/>
+        <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
     </resources>
 </document>

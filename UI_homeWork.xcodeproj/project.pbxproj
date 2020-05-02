@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E501C657245DB63600729270 /* NewsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501C656245DB63600729270 /* NewsTableVC.swift */; };
+		E501C659245DC35500729270 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501C658245DC35500729270 /* NewsCell.swift */; };
 		E513097422CCD2070014E711 /* FriendCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E513097322CCD2070014E711 /* FriendCollectionVC.swift */; };
 		E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CA66422C8653B00EB78AE /* AppDelegate.swift */; };
 		E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54CA66622C8653B00EB78AE /* FirstVC.swift */; };
@@ -22,15 +24,15 @@
 		E5AD38132458A4E900B6E0B6 /* XibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AD38112458A4E900B6E0B6 /* XibCell.xib */; };
 		E5BEB5BD2453881300C451F0 /* ShadowView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BEB5BC2453881300C451F0 /* ShadowView3.swift */; };
 		E5BF0DEE22DA5B2B00E74D76 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */; };
-		E5C7C05324533DC700563C71 /* ShadowView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C7C05224533DC700563C71 /* ShadowView2.swift */; };
 		E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8A5F122D5AE3A008BE120 /* UserData.swift */; };
-		E5C99DF322E5D3300050EA6D /* ProbaShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C99DF222E5D3300050EA6D /* ProbaShadowView.swift */; };
 		E5F474F222CCC35B00E73A12 /* AllGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E501C656245DB63600729270 /* NewsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableVC.swift; sourceTree = "<group>"; };
+		E501C658245DC35500729270 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		E513097322CCD2070014E711 /* FriendCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionVC.swift; sourceTree = "<group>"; };
-		E54CA66122C8653B00EB78AE /* UI_homeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UI_homeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E54CA66122C8653B00EB78AE /* VK limiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK limiter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54CA66422C8653B00EB78AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E54CA66622C8653B00EB78AE /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		E54CA66922C8653B00EB78AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,9 +48,7 @@
 		E5AD38112458A4E900B6E0B6 /* XibCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibCell.xib; sourceTree = "<group>"; };
 		E5BEB5BC2453881300C451F0 /* ShadowView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView3.swift; sourceTree = "<group>"; };
 		E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
-		E5C7C05224533DC700563C71 /* ShadowView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView2.swift; sourceTree = "<group>"; };
 		E5C8A5F122D5AE3A008BE120 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		E5C99DF222E5D3300050EA6D /* ProbaShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProbaShadowView.swift; sourceTree = "<group>"; };
 		E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +63,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E501C65A245DC35F00729270 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E501C656245DB63600729270 /* NewsTableVC.swift */,
+				E501C658245DC35500729270 /* NewsCell.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		E501C65B245DC38000729270 /* Log in */ = {
+			isa = PBXGroup;
+			children = (
+				E54CA66622C8653B00EB78AE /* FirstVC.swift */,
+			);
+			name = "Log in";
+			sourceTree = "<group>";
+		};
+		E501C65C245DC3A400729270 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				E5BEB5BC2453881300C451F0 /* ShadowView3.swift */,
+				E581236E22CCB81E00A938DA /* FriendsTableVC.swift */,
+				E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */,
+				E513097322CCD2070014E711 /* FriendCollectionVC.swift */,
+				E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		E501C65D245DC3C100729270 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				E581237122CCBEDA00A938DA /* GroupsTableVC.swift */,
+				E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */,
+				E5AD38102458A4E900B6E0B6 /* XibCell.swift */,
+				E5AD38112458A4E900B6E0B6 /* XibCell.xib */,
+			);
+			name = Groups;
+			sourceTree = "<group>";
+		};
 		E54CA65822C8653B00EB78AE = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +114,7 @@
 		E54CA66222C8653B00EB78AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E54CA66122C8653B00EB78AE /* UI_homeWork.app */,
+				E54CA66122C8653B00EB78AE /* VK limiter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,18 +136,10 @@
 		E581237022CCB82500A938DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E54CA66622C8653B00EB78AE /* FirstVC.swift */,
-				E5C99DF222E5D3300050EA6D /* ProbaShadowView.swift */,
-				E5C7C05224533DC700563C71 /* ShadowView2.swift */,
-				E5BEB5BC2453881300C451F0 /* ShadowView3.swift */,
-				E581236E22CCB81E00A938DA /* FriendsTableVC.swift */,
-				E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */,
-				E513097322CCD2070014E711 /* FriendCollectionVC.swift */,
-				E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */,
-				E581237122CCBEDA00A938DA /* GroupsTableVC.swift */,
-				E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */,
-				E5AD38102458A4E900B6E0B6 /* XibCell.swift */,
-				E5AD38112458A4E900B6E0B6 /* XibCell.xib */,
+				E501C65B245DC38000729270 /* Log in */,
+				E501C65A245DC35F00729270 /* News */,
+				E501C65C245DC3A400729270 /* Friends */,
+				E501C65D245DC3C100729270 /* Groups */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,7 +187,7 @@
 			);
 			name = UI_homeWork;
 			productName = UI_homeWork;
-			productReference = E54CA66122C8653B00EB78AE /* UI_homeWork.app */;
+			productReference = E54CA66122C8653B00EB78AE /* VK limiter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,14 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C7C05324533DC700563C71 /* ShadowView2.swift in Sources */,
-				E5C99DF322E5D3300050EA6D /* ProbaShadowView.swift in Sources */,
 				E5AA35D222D5082C00F5F0A2 /* GroupStruct.swift in Sources */,
 				E513097422CCD2070014E711 /* FriendCollectionVC.swift in Sources */,
 				E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */,
 				E5AD38122458A4E900B6E0B6 /* XibCell.swift in Sources */,
+				E501C659245DC35500729270 /* NewsCell.swift in Sources */,
 				E5BF0DEE22DA5B2B00E74D76 /* FriendsTableViewCell.swift in Sources */,
 				E56D3E2022D4D77D003D67D2 /* FriendsCollectionViewCell.swift in Sources */,
+				E501C657245DB63600729270 /* NewsTableVC.swift in Sources */,
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
 				E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */,
 				E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */,
@@ -379,9 +411,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kanatev.UI-homeWork";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "VK limiter";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -398,9 +430,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kanatev.UI-homeWork";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "VK limiter";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
