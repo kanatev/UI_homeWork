@@ -26,8 +26,10 @@ class NewsCell: UITableViewCell {
         didSet {
             if !heartFilled {
                 heartImageView.image = UIImage(systemName: "heart")
+                heartCounterLabel.text = "0"
             } else {
                 heartImageView.image = UIImage(systemName: "heart.fill")
+                heartCounterLabel.text = "1"
             }
         }
     }
@@ -41,6 +43,7 @@ class NewsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         heartImageView.image = UIImage(systemName: "heart")
+        heartCounterLabel.text = "0"
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(heartTapped))
         heartImageView.addGestureRecognizer(tapGestureRecognizer)
     }
@@ -53,6 +56,7 @@ class NewsCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         heartImageView.image = UIImage(systemName: "heart")
+        heartCounterLabel.text = "0"
     }
     
     

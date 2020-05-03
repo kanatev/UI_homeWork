@@ -9,13 +9,20 @@
 import UIKit
 
 class NewsTableVC: UITableViewController {
-
+    @IBAction func exitButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     private var selectedHearts = [IndexPath: Bool]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 250
+//        self.tableView.rowHeight = 250
+//        self.tableView.rowHeight = .
+        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.
+        tableView.estimatedRowHeight = 100
     }
 
     // MARK: - Table view data source
@@ -39,8 +46,23 @@ class NewsTableVC: UITableViewController {
             self?.selectedHearts[indexPath] = cell.heartFilled
         }
         cell.cellIndexPath = indexPath
+        cell.textOfNews.text = "Таиланд – государство в Юго-Восточной Азии с многочисленными тропическими пляжами, роскошными королевскими дворцами, древними руинами и богато украшенными буддийскими храмами."
+
+        cell.imageForNews.image = UIImage(named: "tropic2")
         
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
 
+}
+
+
+// убираем постоянное выделение ячейки
+extension NewsTableVC {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
