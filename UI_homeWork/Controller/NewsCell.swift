@@ -20,6 +20,9 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var textOfNews: UILabel!
     @IBOutlet weak var imageForNews: UIImageView!
     
+    @IBOutlet weak var heightConstrPictureForNews: NSLayoutConstraint!
+    
+    
 //    public var heartState = false
     
     public var heartFilled = false {
@@ -64,5 +67,7 @@ class NewsCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    
 
 }

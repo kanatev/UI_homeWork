@@ -99,7 +99,7 @@
                                             <rect key="frame" x="0.0" y="107" width="375" height="375"/>
                                             <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="rFJ-Sv-5Xq" secondAttribute="height" multiplier="1:1" id="Ss2-in-d9X"/>
+                                                <constraint firstAttribute="height" constant="375" id="qm9-23-7KZ"/>
                                             </constraints>
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         </imageView>
@@ -224,6 +224,7 @@
                                 <connections>
                                     <outlet property="heartCounterLabel" destination="Rry-Zj-gTW" id="jTH-dT-YZu"/>
                                     <outlet property="heartImageView" destination="dPf-59-3bE" id="2Gg-2B-hdA"/>
+                                    <outlet property="heightConstrPictureForNews" destination="qm9-23-7KZ" id="VQU-yB-2wp"/>
                                     <outlet property="imageForNews" destination="rFJ-Sv-5Xq" id="AEs-mC-ERk"/>
                                     <outlet property="nameForNews" destination="reg-JY-pli" id="dML-tN-QdT"/>
                                     <outlet property="textOfNews" destination="d5i-JF-HPd" id="9YF-Ut-MTU"/>
@@ -305,8 +306,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipb-Fb-Mec">
-                                            <rect key="frame" x="110" y="35" width="236" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <rect key="frame" x="110" y="38" width="236" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

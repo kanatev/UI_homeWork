@@ -9,19 +9,16 @@
 import UIKit
 
 class NewsTableVC: UITableViewController {
+
     @IBAction func exitButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     private var selectedHearts = [IndexPath: Bool]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.rowHeight = 250
-//        self.tableView.rowHeight = .
         tableView.rowHeight = UITableView.automaticDimension
-//        tableView.
         tableView.estimatedRowHeight = 100
     }
 
@@ -35,7 +32,6 @@ class NewsTableVC: UITableViewController {
         return 10
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
 
@@ -47,18 +43,20 @@ class NewsTableVC: UITableViewController {
         }
         cell.cellIndexPath = indexPath
         cell.textOfNews.text = "Таиланд – государство в Юго-Восточной Азии с многочисленными тропическими пляжами, роскошными королевскими дворцами, древними руинами и богато украшенными буддийскими храмами."
-
-        cell.imageForNews.image = UIImage(named: "tropic2")
+        
+        cell.imageForNews.image = UIImage(named: "tropic") ?? UIImage(named: "1no-img")
+        
+        cell.heightConstrPictureForNews.constant = getHeightForImage(widthOfCell: cell.frame.width, width: cell.imageForNews.image!.size.width, height: cell.imageForNews.image!.size.height)
         
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-
+    func getHeightForImage(widthOfCell: CGFloat, width: CGFloat, height: CGFloat) -> CGFloat {
+        let multiplier = height / width
+        let newHeight = multiplier * widthOfCell
+        return newHeight
+    }
 }
-
 
 // убираем постоянное выделение ячейки
 extension NewsTableVC {

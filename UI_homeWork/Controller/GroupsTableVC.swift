@@ -34,14 +34,15 @@ class GroupsTableVC: UITableViewController, UISearchBarDelegate {
         self.tableView.register(xibCellNib, forCellReuseIdentifier: "XibCell")
         //        self.tableView.register(<#T##nib: UINib?##UINib?#>, forHeaderFooterViewReuseIdentifier: <#T##String#>)
         
-        // задаем высоту ячейки
-        self.tableView.rowHeight = 50
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // задаем высоту ячейки
+        self.tableView.rowHeight = 80
+        
     }
     
     // MARK: - Table view data source

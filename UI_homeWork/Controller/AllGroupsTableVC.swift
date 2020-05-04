@@ -22,7 +22,7 @@ class AllGroupsTableVC: UITableViewController {
         
         
         // задаем высоту ячейки
-        self.tableView.rowHeight = 50
+        self.tableView.rowHeight = 80
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
