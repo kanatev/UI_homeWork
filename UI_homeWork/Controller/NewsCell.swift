@@ -19,11 +19,9 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var nameForNews: UILabel!
     @IBOutlet weak var textOfNews: UILabel!
     @IBOutlet weak var imageForNews: UIImageView!
-    
     @IBOutlet weak var heightConstrPictureForNews: NSLayoutConstraint!
+    @IBOutlet weak var likeControlOutlet: LikeControl!
     
-    
-//    public var heartState = false
     
     public var heartFilled = false {
         didSet {
@@ -48,7 +46,8 @@ class NewsCell: UITableViewCell {
         heartImageView.image = UIImage(systemName: "heart")
         heartCounterLabel.text = "0"
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(heartTapped))
-        heartImageView.addGestureRecognizer(tapGestureRecognizer)
+//        heartImageView.addGestureRecognizer(tapGestureRecognizer)
+        likeControlOutlet.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc private func heartTapped(){

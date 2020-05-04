@@ -122,19 +122,33 @@
                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-59-3bE">
-                                            <rect key="frame" x="5" y="488.5" width="21" height="18.5"/>
-                                            <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-WS-djh" customClass="LikeControl" customModule="VK_limiter" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="482" width="78" height="31"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rry-Zj-gTW">
+                                                    <rect key="frame" x="31" y="5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dPf-59-3bE">
+                                                    <rect key="frame" x="5" y="6.5" width="21" height="18.5"/>
+                                                    <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="dPf-59-3bE" secondAttribute="height" multiplier="1:1" id="ghQ-jx-uZE"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.53270780945184182" green="0.29524287189985088" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="dPf-59-3bE" secondAttribute="height" multiplier="1:1" id="SJW-Ds-Wsa"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rry-Zj-gTW" secondAttribute="trailing" constant="5" id="6bU-Nt-EVD"/>
+                                                <constraint firstItem="Rry-Zj-gTW" firstAttribute="leading" secondItem="dPf-59-3bE" secondAttribute="trailing" constant="5" id="6pG-oV-2JM"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rry-Zj-gTW" secondAttribute="bottom" constant="5" id="ZTh-Sg-2cv"/>
+                                                <constraint firstItem="dPf-59-3bE" firstAttribute="leading" secondItem="nPt-WS-djh" secondAttribute="leading" constant="5" id="gOa-3S-Ejc"/>
+                                                <constraint firstAttribute="bottom" secondItem="dPf-59-3bE" secondAttribute="bottom" constant="5" id="mej-EF-Whf"/>
+                                                <constraint firstAttribute="width" secondItem="nPt-WS-djh" secondAttribute="height" multiplier="78:31" id="xrS-W6-X8V"/>
                                             </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rry-Zj-gTW">
-                                            <rect key="frame" x="31" y="487" width="32" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SMH-Y1-49i">
                                             <rect key="frame" x="86" y="488" width="22.5" height="20"/>
                                             <color key="tintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
@@ -182,42 +196,40 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rry-Zj-gTW" secondAttribute="trailing" constant="312" id="26F-wS-IzA"/>
+                                        <constraint firstItem="nPt-WS-djh" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" id="3rR-b3-jeh"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="xhy-mh-YYp" secondAttribute="trailing" constant="10" id="5Xw-19-3Ky"/>
                                         <constraint firstItem="8nK-k6-0EF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wzp-hn-Ywd" secondAttribute="trailing" constant="92.5" id="7AW-Ez-7A1"/>
+                                        <constraint firstItem="nPt-WS-djh" firstAttribute="top" secondItem="rFJ-Sv-5Xq" secondAttribute="bottom" id="8V9-Fy-JEc"/>
                                         <constraint firstItem="rFJ-Sv-5Xq" firstAttribute="top" secondItem="d5i-JF-HPd" secondAttribute="bottom" constant="5" id="9CJ-rX-Ygu"/>
-                                        <constraint firstItem="dPf-59-3bE" firstAttribute="top" secondItem="rFJ-Sv-5Xq" secondAttribute="bottom" constant="5" id="9Vi-fF-ZGx"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wMV-2S-Wsw" secondAttribute="trailing" constant="240" id="CEj-de-43p"/>
                                         <constraint firstAttribute="bottom" secondItem="kWL-s6-nCM" secondAttribute="bottom" constant="5" id="DTN-Ls-RCs"/>
                                         <constraint firstAttribute="trailing" secondItem="d5i-JF-HPd" secondAttribute="trailing" constant="5" id="G6u-wR-gDq"/>
                                         <constraint firstAttribute="trailing" secondItem="reg-JY-pli" secondAttribute="trailing" constant="10" id="HBI-zP-IIR"/>
+                                        <constraint firstItem="SMH-Y1-49i" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" constant="86" id="IMp-90-kyz"/>
                                         <constraint firstAttribute="bottom" secondItem="SMH-Y1-49i" secondAttribute="bottom" constant="5" id="Kw5-tk-NOa"/>
                                         <constraint firstAttribute="trailing" secondItem="kWL-s6-nCM" secondAttribute="trailing" constant="5" id="Kzd-R0-Was"/>
                                         <constraint firstItem="d5i-JF-HPd" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" constant="5" id="LGo-md-xGd"/>
                                         <constraint firstAttribute="trailing" secondItem="rFJ-Sv-5Xq" secondAttribute="trailing" id="Lpc-vS-qVj"/>
                                         <constraint firstItem="reg-JY-pli" firstAttribute="top" secondItem="dnj-wD-ZHf" secondAttribute="top" constant="5" id="MOH-ZW-A0R"/>
                                         <constraint firstAttribute="bottom" secondItem="wzp-hn-Ywd" secondAttribute="bottom" constant="5" id="Mf9-FG-tQA"/>
-                                        <constraint firstItem="dPf-59-3bE" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" constant="5" id="NhD-J5-gon"/>
                                         <constraint firstAttribute="bottom" secondItem="wMV-2S-Wsw" secondAttribute="bottom" constant="5" id="PxB-bv-PIK"/>
                                         <constraint firstItem="wzp-hn-Ywd" firstAttribute="leading" secondItem="ine-rK-kco" secondAttribute="trailing" constant="5" id="R3B-9b-9Cf"/>
-                                        <constraint firstItem="SMH-Y1-49i" firstAttribute="leading" secondItem="dPf-59-3bE" secondAttribute="trailing" constant="60" id="Uz4-pP-ZVx"/>
                                         <constraint firstAttribute="bottom" secondItem="ine-rK-kco" secondAttribute="bottom" constant="5" id="VL8-f0-sDj"/>
                                         <constraint firstItem="Mdz-rE-bOa" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" constant="5" id="Vrm-Ao-Hom"/>
                                         <constraint firstItem="UXT-s9-IoT" firstAttribute="top" secondItem="dnj-wD-ZHf" secondAttribute="top" constant="10" id="WcU-al-ckd"/>
                                         <constraint firstItem="wMV-2S-Wsw" firstAttribute="leading" secondItem="SMH-Y1-49i" secondAttribute="trailing" constant="5" id="aws-Xe-OgZ"/>
-                                        <constraint firstAttribute="bottom" secondItem="dPf-59-3bE" secondAttribute="bottom" constant="5" id="eZu-cs-b9E"/>
-                                        <constraint firstAttribute="bottom" secondItem="Rry-Zj-gTW" secondAttribute="bottom" constant="5" id="fUL-ZR-TPn"/>
+                                        <constraint firstAttribute="bottom" secondItem="nPt-WS-djh" secondAttribute="bottom" id="bDc-g7-nfx"/>
                                         <constraint firstItem="reg-JY-pli" firstAttribute="leading" secondItem="Mdz-rE-bOa" secondAttribute="trailing" constant="10" id="kSb-ws-atJ"/>
                                         <constraint firstItem="xhy-mh-YYp" firstAttribute="top" secondItem="dnj-wD-ZHf" secondAttribute="topMargin" constant="13" id="kYh-Lq-CR4"/>
                                         <constraint firstItem="xhy-mh-YYp" firstAttribute="leading" secondItem="Mdz-rE-bOa" secondAttribute="trailing" constant="10" id="kct-Mz-67Y"/>
                                         <constraint firstAttribute="bottom" secondItem="8nK-k6-0EF" secondAttribute="bottom" constant="5" id="lfb-VS-s3l"/>
                                         <constraint firstItem="rFJ-Sv-5Xq" firstAttribute="width" secondItem="dnj-wD-ZHf" secondAttribute="width" id="nrv-w3-K5h"/>
                                         <constraint firstItem="Mdz-rE-bOa" firstAttribute="top" secondItem="dnj-wD-ZHf" secondAttribute="top" constant="5" id="pq4-Ev-dQY"/>
+                                        <constraint firstAttribute="trailing" secondItem="nPt-WS-djh" secondAttribute="trailing" constant="297" id="rFM-DS-4ZA"/>
                                         <constraint firstItem="rFJ-Sv-5Xq" firstAttribute="leading" secondItem="dnj-wD-ZHf" secondAttribute="leading" id="s13-P0-Aar"/>
                                         <constraint firstItem="ine-rK-kco" firstAttribute="leading" secondItem="SMH-Y1-49i" secondAttribute="trailing" constant="60" id="uun-Oa-P59"/>
                                         <constraint firstItem="d5i-JF-HPd" firstAttribute="top" secondItem="Mdz-rE-bOa" secondAttribute="bottom" constant="5" id="vKw-NR-8G0"/>
                                         <constraint firstAttribute="trailing" secondItem="UXT-s9-IoT" secondAttribute="trailing" constant="10" id="vuT-nd-b2J"/>
-                                        <constraint firstItem="Rry-Zj-gTW" firstAttribute="leading" secondItem="dPf-59-3bE" secondAttribute="trailing" constant="5" id="wLT-cK-uq5"/>
                                         <constraint firstItem="kWL-s6-nCM" firstAttribute="leading" secondItem="8nK-k6-0EF" secondAttribute="trailing" constant="5" id="yaT-Ns-c51"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -226,6 +238,7 @@
                                     <outlet property="heartImageView" destination="dPf-59-3bE" id="2Gg-2B-hdA"/>
                                     <outlet property="heightConstrPictureForNews" destination="qm9-23-7KZ" id="VQU-yB-2wp"/>
                                     <outlet property="imageForNews" destination="rFJ-Sv-5Xq" id="AEs-mC-ERk"/>
+                                    <outlet property="likeControlOutlet" destination="nPt-WS-djh" id="GKt-B1-aiH"/>
                                     <outlet property="nameForNews" destination="reg-JY-pli" id="dML-tN-QdT"/>
                                     <outlet property="textOfNews" destination="d5i-JF-HPd" id="9YF-Ut-MTU"/>
                                 </connections>
