@@ -20,7 +20,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var textOfNews: UILabel!
     @IBOutlet weak var imageForNews: UIImageView!
     @IBOutlet weak var heightConstrPictureForNews: NSLayoutConstraint!
-    @IBOutlet weak var likeControlOutlet: LikeControl!
+    @IBOutlet weak var likeControlOutlet: UIView!
     
     
     public var heartFilled = false {
