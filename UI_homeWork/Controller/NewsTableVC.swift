@@ -64,3 +64,5 @@ extension NewsTableVC {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
+//proverka
