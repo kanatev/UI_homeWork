@@ -20,6 +20,7 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var textOfNews: UILabel!
     @IBOutlet weak var imageForNews: UIImageView!
     @IBOutlet weak var heightConstrPictureForNews: NSLayoutConstraint!
+    @IBOutlet weak var widthConstrPictureForNews: NSLayoutConstraint!
     @IBOutlet weak var likeControlOutlet: UIView!
     
     

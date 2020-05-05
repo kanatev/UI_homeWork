@@ -46,10 +46,11 @@ class NewsTableVC: UITableViewController {
         
         cell.imageForNews.image = UIImage(named: "tropic") ?? UIImage(named: "1no-img")
         
-        cell.heightConstrPictureForNews.constant = getHeightForImage(widthOfCell: cell.frame.width, width: cell.imageForNews.image!.size.width, height: cell.imageForNews.image!.size.height)
-        
+        cell.heightConstrPictureForNews.constant = getHeightForImage(widthOfCell: super.view.frame.width, width: cell.imageForNews.image!.size.width, height: cell.imageForNews.image!.size.height)
+
         return cell
     }
+    
     
     func getHeightForImage(widthOfCell: CGFloat, width: CGFloat, height: CGFloat) -> CGFloat {
         let multiplier = height / width

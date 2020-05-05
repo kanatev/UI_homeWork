@@ -84,7 +84,7 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
                         }, completion: {_ in
                             thirdDot.backgroundColor = .black
                             counter += 1
-                            if counter < 3{
+                            if counter < 2{
                                 repeatAnimation()
                             } else {
                                 self.animationPerformed = true
