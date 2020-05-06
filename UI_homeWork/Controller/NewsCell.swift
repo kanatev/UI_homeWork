@@ -47,13 +47,13 @@ class NewsCell: UITableViewCell {
         heartImageView.image = UIImage(systemName: "heart")
         heartCounterLabel.text = "0"
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(heartTapped))
-//        heartImageView.addGestureRecognizer(tapGestureRecognizer)
         likeControlOutlet.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc private func heartTapped(){
         heartFilled.toggle()
         heartPressed()
+        likeListingAnimation()
     }
     
     override func prepareForReuse() {
@@ -68,6 +68,8 @@ class NewsCell: UITableViewCell {
 
     }
     
+    func likeListingAnimation(){
+        UIView.transition(with: self.likeControlOutlet, duration: 0.5, options: .transitionFlipFromBottom, animations: {}, completion: nil)
+    }
     
-
 }
