@@ -55,9 +55,13 @@ import UIKit
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
+        let sizeOfView = self.frame.height * 0.9
+        let indent = self.frame.height * 0.05
+        
         if shadowLayer == nil {
             shadowLayer = CAShapeLayer()
             shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.height / 2).cgPath
+
             shadowLayer.fillColor = viewBackgroundColor.cgColor
             
             shadowLayer.shadowColor = shadowColor.cgColor
@@ -65,22 +69,22 @@ import UIKit
             shadowLayer.shadowOffset = shadowOffset
             shadowLayer.shadowOpacity = shadowOpacity
             shadowLayer.shadowRadius = shadowRadius
-            
+//            shadowLayer.frame.height = self.frame.height
+//            shadowLayer.frame.width = self.frame.width
             layer.addSublayer(shadowLayer)
         }
-        
-        borderView.frame = CGRect.init(x: 5, y: 5, width: 80, height: 80)
+
+        borderView.frame = CGRect.init(x: indent, y: indent, width: sizeOfView, height: sizeOfView)
+
         borderView.layer.cornerRadius = borderView.frame.height/2
         borderView.layer.borderColor = UIColor.lightGray.cgColor
         borderView.layer.borderWidth = 1
         borderView.layer.masksToBounds = true
         self.addSubview(borderView)
         
-        imageView.frame = CGRect.init(x: 0, y: 0, width: 80, height: 80)
+        imageView.frame = CGRect.init(x: 0, y: 0, width: borderView.frame.width, height: borderView.frame.height)
         imageView.backgroundColor = .red
         imageView.image = image1
         borderView.addSubview(imageView)
-
     }
-    
 }

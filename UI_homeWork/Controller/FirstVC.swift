@@ -46,6 +46,7 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
             
             self.grayView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
             self.grayView!.backgroundColor = .lightGray
+            self.grayView!.alpha = 0.9
             self.view.addSubview(self.grayView!)
             
             let dotsView = UIView(frame: CGRect(x: grayView!.bounds.width/2-50, y: self.grayView!.bounds.height/2-15, width: 100, height: 30))
