@@ -11,6 +11,9 @@ import UIKit
 
 class FirstVC: UIViewController, UIAlertViewDelegate {
     
+    var animationPerformed: Bool?
+    var grayView: UIView?
+    
     // white status bar
     var barStyle = UIStatusBarStyle.lightContent
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -27,6 +30,7 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
     }
     
     @IBAction func enterButton(_ sender: Any) {
+        animation()
     }
     
     func showArert() {
@@ -36,32 +40,96 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
         clearTextFields()
     }
     
+    private func animation() {
+        
+        if animationPerformed == false {
+            
+            self.grayView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+            self.grayView!.backgroundColor = .lightGray
+            self.grayView!.alpha = 0.9
+            self.view.addSubview(self.grayView!)
+            
+            let dotsView = UIView(frame: CGRect(x: grayView!.bounds.width/2-50, y: self.grayView!.bounds.height/2-15, width: 100, height: 30))
+            dotsView.backgroundColor = .gray
+            dotsView.layer.cornerRadius = 15
+            grayView!.addSubview(dotsView)
+            
+            let firstDot = UIView(frame: CGRect(x: 10, y: dotsView.bounds.height/2-5, width: 10, height: 10))
+            firstDot.backgroundColor = .black
+            firstDot.layer.cornerRadius = firstDot.frame.height/2
+            dotsView.addSubview(firstDot)
+            
+            let secondDot = UIView(frame: CGRect(x: dotsView.bounds.width/2-5, y: dotsView.bounds.height/2-5, width: 10, height: 10))
+            secondDot.backgroundColor = .black
+            secondDot.layer.cornerRadius = firstDot.frame.height/2
+            dotsView.addSubview(secondDot)
+            
+            let thirdDot = UIView(frame: CGRect(x: 80, y: dotsView.bounds.height/2-5, width: 10, height: 10))
+            thirdDot.backgroundColor = .black
+            thirdDot.layer.cornerRadius = firstDot.frame.height/2
+            dotsView.addSubview(thirdDot)
+            
+            
+            var counter = 1
+            func repeatAnimation(){
+                UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
+                    firstDot.backgroundColor = .white
+                }, completion: {_ in
+                    firstDot.backgroundColor = .black
+                    UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
+                        secondDot.backgroundColor = .white
+                    }, completion: {_ in
+                        secondDot.backgroundColor = .black
+                        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
+                            thirdDot.backgroundColor = .white
+                        }, completion: {_ in
+                            thirdDot.backgroundColor = .black
+                            counter += 1
+                            if counter < 2{
+                                repeatAnimation()
+                            } else {
+                                self.animationPerformed = true
+                                self.performSegue(withIdentifier: "enterSegue", sender: self)
+                            }
+                        })
+                    })
+                })
+            }
+            repeatAnimation()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        animationPerformed = false
         loginTextField.placeholder = "Email или телефон"
         passwordTextField.placeholder = "Пароль"
         enterButtonOutlet.layer.cornerRadius = 5
     }
     
-    //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-    //
-    //
-    ////        if loginTextField.text == "admin" && passwordTextField.text == "123456" {
-    ////            clearTextFields()
-    ////            return true
-    ////        } else {
-    ////            showArert()
-    ////            return false
-    ////        }
-    //    }
-    //
-    //}
+    override func viewWillAppear(_ animated: Bool) {
+        if self.grayView != nil {
+            self.grayView!.removeFromSuperview()
+            self.animationPerformed = false
+        }
+    }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "enterSegue" {
-//            if let destinationVC = segue.destination as? FriendsTableVC
-//            destinationVC.modalPresentationStyle = .fullScreen
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if animationPerformed == true{
+            return true
+        } else {
+            return false
+        }
+//        if loginTextField.text == "admin" && passwordTextField.text == "123456" {
+//            clearTextFields()
+//            return true
+//        } else {
+//            showArert()
+//            return false
 //        }
 //    }
+    }
+    
+    
+    
 }

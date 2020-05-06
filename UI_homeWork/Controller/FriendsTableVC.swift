@@ -61,7 +61,7 @@ import UIKit
         //        self.navigationController?.modalPresentationStyle = .fullScreen
         
         // задаем высоту ячейки
-        self.tableView.rowHeight = 100
+        self.tableView.rowHeight = 80
         
     }
     
@@ -182,5 +182,7 @@ import UIKit
             (firstCharacters, sortedFriendsDict) = sort(friendsArray)
         }
     }
+    
+
     
 }
