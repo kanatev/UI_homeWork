@@ -130,6 +130,6 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
 //    }
     }
     
-    
+    // proverka
     
 }
