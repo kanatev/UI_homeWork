@@ -41,7 +41,7 @@ class FriendCollectionVC: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
+    
+    
 
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-let photoSet1: [UIImage] = [UIImage (named: "dog1")!,
+let photoSet10: [UIImage] = [UIImage (named: "dog1")!,
                                 UIImage (named: "dog2")!,
                                 UIImage (named: "dog3")!,
                                 UIImage (named: "dog4")!,
@@ -77,7 +77,7 @@ let photoSet9: [UIImage] = [UIImage (named: "turtle1")!,
                                 UIImage (named: "turtle7")!,
                                 UIImage (named: "turtle8")!]
 
-let photoSet10: [UIImage] = [UIImage (named: "seahorse1")!,
+let photoSet1: [UIImage] = [UIImage (named: "seahorse1")!,
                                UIImage (named: "seahorse2")!,
                                UIImage (named: "seahorse3")!,
                                UIImage (named: "seahorse4")!,
