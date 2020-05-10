@@ -509,7 +509,7 @@
                             <outlet property="delegate" destination="ySB-OQ-efL" id="XB3-wn-a7q"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="n7a-EZ-Lyw"/>
+                    <navigationItem key="navigationItem" title="Фотографии" id="n7a-EZ-Lyw"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4D-Ua-4cR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

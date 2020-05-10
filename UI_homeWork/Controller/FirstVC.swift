@@ -317,7 +317,7 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
     
     func animation4(){
         
-        timeOfStart = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
+        timeOfStart = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
         
         self.grayView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.grayView!.backgroundColor = .lightGray
@@ -346,12 +346,13 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
         let transform1 = CGAffineTransform(translationX: 60, y: 0)
         let transform2 = transform1.concatenating(CGAffineTransform(translationX: 0, y: 0))
         
+         
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: [.repeat, .calculationModeCubicPaced, .autoreverse], animations: {
-            
             UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
                 firstDot.transform = transform1
             }
         }, completion: nil)
+        
         
         UIView.animateKeyframes(withDuration: 1, delay: 0.04, options: [.repeat, .calculationModeCubicPaced, .autoreverse], animations: {
             UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
