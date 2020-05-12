@@ -12,6 +12,7 @@ class PhotoVC: UIViewController {
     var viewForPicture: UIView!
     var imageView: UIImageView!
     var photoArray: [UIImage]!
+    var imageView2: UIImageView!
     
     
     override var prefersStatusBarHidden: Bool {
@@ -21,14 +22,7 @@ class PhotoVC: UIViewController {
     override func viewWillLayoutSubviews() {
         
     }
-    ///     let numbers = [10, 20, 30, 40, 50]
-    ///     if let i = numbers.index(numbers.startIndex,
-    ///                              offsetBy: 4,
-    ///                              limitedBy: numbers.endIndex) {
-    ///         print(numbers[i])
-    ///     }
-    ///     // Prints "50"
-    ///
+    
     func findImagePosition(currentImage: UIImage, arrayOfImages: [UIImage]) -> Int {
         var imagePosition: Int!
         
@@ -50,7 +44,6 @@ class PhotoVC: UIViewController {
         transition.subtype = CATransitionSubtype.fromBottom
         self.view.window!.layer.add(transition, forKey: nil)
         self.dismiss(animated: false, completion: nil)
-        //        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func exitUpGesture(){
@@ -63,36 +56,70 @@ class PhotoVC: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    // функция свайпа фото вперед
     @objc func nextPhotoGesture(){
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromRight
-        self.view.window!.layer.add(transition, forKey: nil)
-        
-        let newPosition: Int? = findImagePosition(currentImage: self.imageView.image!, arrayOfImages: photoArray)+1
-        if newPosition! < photoArray.count {
-            self.imageView.image = photoArray[newPosition!]
-        } else {
-            self.imageView.image = photoArray[0]
-        }
+        UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.calculationModeCubicPaced], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
+                self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            }
+            
+        }, completion:  {_ in
+            self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+            let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)+1
+            if newPosition! < self.photoArray.count {
+                self.imageView.image = self.photoArray[newPosition!]
+            } else {
+                self.imageView.image = self.photoArray[0]
+            }
+            
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromRight
+            self.view.window!.layer.add(transition, forKey: nil)
+            
+        })
+          
+        //        let transition = CATransition()
+        //        transition.duration = 0.3
+        //        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        //        transition.type = CATransitionType.push
+        //        transition.subtype = CATransitionSubtype.fromRight
+        //        self.view.window!.layer.add(transition, forKey: nil)
+        //
+        //        let newPosition: Int? = findImagePosition(currentImage: self.imageView.image!, arrayOfImages: photoArray)+1
+        //        if newPosition! < photoArray.count {
+        //            self.imageView.image = photoArray[newPosition!]
+        //        } else {
+        //            self.imageView.image = photoArray[0]
+        //        }
     }
     
+    // функция свайпа фото назад
     @objc func previousPhotoGesture(){
+        
+        let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)-1
+        if newPosition! >= 0 {
+            self.imageView.image = self.photoArray[newPosition!]
+        } else {
+            self.imageView.image = self.photoArray.last
+        }
+        
         let transition = CATransition()
-        transition.duration = 0.3
+        transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         transition.type = CATransitionType.push
         transition.subtype = CATransitionSubtype.fromLeft
         self.view.window!.layer.add(transition, forKey: nil)
+        self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         
-        let newPosition: Int? = findImagePosition(currentImage: self.imageView.image!, arrayOfImages: photoArray)-1
-        if newPosition! >= 0 {
-            self.imageView.image = photoArray[newPosition!]
-        } else {
-            self.imageView.image = photoArray.last
-        }
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0.5, options: [.calculationModeCubicPaced], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
+                self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+        }, completion: nil)
     }
     
     override func viewDidLoad() {

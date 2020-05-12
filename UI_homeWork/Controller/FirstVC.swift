@@ -314,10 +314,9 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
         self.performSegue(withIdentifier: "enterSegue", sender: self)
     }
     
-    
     func animation4(){
         
-        timeOfStart = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
+        timeOfStart = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(stopAnimation), userInfo: nil, repeats: false)
         
         self.grayView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.grayView!.backgroundColor = .lightGray
