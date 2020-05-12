@@ -15,6 +15,7 @@ class PhotoVC: UIViewController {
     var imageView2: UIImageView!
     
     
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -81,20 +82,6 @@ class PhotoVC: UIViewController {
             self.view.window!.layer.add(transition, forKey: nil)
             
         })
-          
-        //        let transition = CATransition()
-        //        transition.duration = 0.3
-        //        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        //        transition.type = CATransitionType.push
-        //        transition.subtype = CATransitionSubtype.fromRight
-        //        self.view.window!.layer.add(transition, forKey: nil)
-        //
-        //        let newPosition: Int? = findImagePosition(currentImage: self.imageView.image!, arrayOfImages: photoArray)+1
-        //        if newPosition! < photoArray.count {
-        //            self.imageView.image = photoArray[newPosition!]
-        //        } else {
-        //            self.imageView.image = photoArray[0]
-        //        }
     }
     
     // функция свайпа фото назад
@@ -125,12 +112,16 @@ class PhotoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let newSize = getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+        
+        self.imageView.frame.size = newSize
+        self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+        
+        
+        
         self.viewForPicture = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(viewForPicture)
         self.viewForPicture.addSubview(self.imageView)
-        
-        //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(heartTapped))
-        //        likeControlOutlet.addGestureRecognizer(tapGestureRecognizer)
         
         let swipeTopToBottom = UISwipeGestureRecognizer(target: self, action: #selector(exitDownGesture))
         swipeTopToBottom.direction = .down
@@ -149,16 +140,43 @@ class PhotoVC: UIViewController {
         self.viewForPicture.addGestureRecognizer(swipeToPrevious)
     }
     
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func getSizeForImage(heightOfView: CGFloat, widthOfView: CGFloat, width: CGFloat, height: CGFloat) -> CGSize {
+        var newWidth: CGFloat
+        var newHeight: CGFloat
+        var newSize: CGSize = CGSize(width: 100, height: 100)
+        
+        if heightOfView > widthOfView {
+            let multiplierForHeight = height / width
+            newWidth = widthOfView
+            newHeight = multiplierForHeight * widthOfView
+            newSize = CGSize(width: newWidth, height: newHeight)
+        } else {
+            
+        }
+        
+        
+//            let multiplierForWidth = width / height
+//            var newWidth = multiplierForWidth * widthOfView
+//            newWidth = 300
+//
+//            let multiplierForHeight = height / width
+//            var newHeight = multiplierForHeight * heightOfView
+//            newHeight = 200
+//
+//        let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
+        
+        return newSize
+//
+//            let multiplierForWidth = width / height
+//            var newWidth = multiplierForWidth * widthOfView
+//            newWidth = 300
+//            let multiplierForHeight = height / width
+//            var newHeight = multiplierForHeight * heightOfView
+//            newHeight = 200
+//
+//        let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
+//
+//        return newSize
+    }
     
 }
