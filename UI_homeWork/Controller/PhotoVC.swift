@@ -20,8 +20,19 @@ class PhotoVC: UIViewController {
         return true
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
+    
     override func viewWillLayoutSubviews() {
+        let newSize = getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
         
+        self.imageView.frame.size = newSize
+        self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
     }
     
     func findImagePosition(currentImage: UIImage, arrayOfImages: [UIImage]) -> Int {
@@ -109,15 +120,24 @@ class PhotoVC: UIViewController {
         }, completion: nil)
     }
     
+    @objc func orientationChanged(notification : NSNotification) {
+        print("orientation changed")
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft {
+            print("landscapeLeft")
+        } else if UIDevice.current.orientation.isPortrait {
+            print("portrait")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newSize = getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
-        
-        self.imageView.frame.size = newSize
-        self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
-        
-        
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(orientationChanged(notification:)),
+            name: UIDevice.orientationDidChangeNotification,
+            object: nil)
         
         self.viewForPicture = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
         self.view.addSubview(viewForPicture)
@@ -140,43 +160,43 @@ class PhotoVC: UIViewController {
         self.viewForPicture.addGestureRecognizer(swipeToPrevious)
     }
     
+    
     func getSizeForImage(heightOfView: CGFloat, widthOfView: CGFloat, width: CGFloat, height: CGFloat) -> CGSize {
+        let multiplierForHeight = height / width
         var newWidth: CGFloat
         var newHeight: CGFloat
         var newSize: CGSize = CGSize(width: 100, height: 100)
         
         if heightOfView > widthOfView {
-            let multiplierForHeight = height / width
             newWidth = widthOfView
             newHeight = multiplierForHeight * widthOfView
             newSize = CGSize(width: newWidth, height: newHeight)
         } else {
-            
+            newWidth = widthOfView
+            newHeight = heightOfView
+            newSize = CGSize(width: newWidth, height: newHeight)
         }
-        
-        
-//            let multiplierForWidth = width / height
-//            var newWidth = multiplierForWidth * widthOfView
-//            newWidth = 300
-//
-//            let multiplierForHeight = height / width
-//            var newHeight = multiplierForHeight * heightOfView
-//            newHeight = 200
-//
-//        let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
-        
         return newSize
-//
-//            let multiplierForWidth = width / height
-//            var newWidth = multiplierForWidth * widthOfView
-//            newWidth = 300
-//            let multiplierForHeight = height / width
-//            var newHeight = multiplierForHeight * heightOfView
-//            newHeight = 200
-//
-//        let newSize: CGSize = CGSize(width: newWidth, height: newHeight)
-//
-//        return newSize
     }
     
+    func getSizeForImageWithOrientation(orientation: UIDeviceOrientation, heightOfView: CGFloat, widthOfView: CGFloat, width: CGFloat, height: CGFloat) -> CGSize {
+        let multiplierForHeight = height / width
+        var newWidth: CGFloat
+        var newHeight: CGFloat
+        var newSize: CGSize = CGSize(width: 100, height: 100)
+        
+        if orientation == .landscapeRight || orientation == .landscapeLeft {
+            newWidth = widthOfView
+            //            newWidth = 100
+            newHeight = multiplierForHeight * widthOfView
+            //            newHeight = 100
+            newSize = CGSize(width: newWidth, height: newHeight)
+        } else {
+            newWidth = widthOfView
+            newHeight = heightOfView
+            newSize = CGSize(width: newWidth, height: newHeight)
+        }
+        return newSize
+    }
+
 }

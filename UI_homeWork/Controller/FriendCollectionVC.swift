@@ -53,6 +53,7 @@ class FriendCollectionVC: UICollectionViewController {
 //        vc.imageView?.heig
         
         vc.photoArray = photoArray
+//        vc.supportedInterfaceOrientations.rawValue = 
         vc.modalPresentationStyle = .fullScreen
         vc.setNeedsStatusBarAppearanceUpdate()
         present(vc, animated: true, completion: nil)
