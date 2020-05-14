@@ -6,6 +6,8 @@
 //  Copyright © 2020 Aleksei Kanatev. All rights reserved.
 //
 
+// proverka
+
 import UIKit
 
 class PhotoVC: UIViewController {
