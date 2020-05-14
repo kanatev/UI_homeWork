@@ -26,6 +26,7 @@
 		E5BF0DEE22DA5B2B00E74D76 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */; };
 		E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8A5F122D5AE3A008BE120 /* UserData.swift */; };
 		E5F474F222CCC35B00E73A12 /* AllGroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */; };
+		E5F9A7D62468659C00EED089 /* PhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F9A7D52468659C00EED089 /* PhotoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		E5C8A5F122D5AE3A008BE120 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E5F474F122CCC35B00E73A12 /* AllGroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableVC.swift; sourceTree = "<group>"; };
+		E5F9A7D52468659C00EED089 /* PhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				E5BF0DED22DA5B2B00E74D76 /* FriendsTableViewCell.swift */,
 				E513097322CCD2070014E711 /* FriendCollectionVC.swift */,
 				E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */,
+				E5F9A7D52468659C00EED089 /* PhotoVC.swift */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
 				E5AA35D022D5081F00F5F0A2 /* UserStruct.swift in Sources */,
 				E54CA66522C8653B00EB78AE /* AppDelegate.swift in Sources */,
+				E5F9A7D62468659C00EED089 /* PhotoVC.swift in Sources */,
 				E5F474F222CCC35B00E73A12 /* AllGroupsTableVC.swift in Sources */,
 				E5C8A5F222D5AE3A008BE120 /* UserData.swift in Sources */,
 				E5BEB5BD2453881300C451F0 /* ShadowView3.swift in Sources */,

@@ -41,7 +41,21 @@ class FriendCollectionVC: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
-
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+   
+        let vc = PhotoVC()
+        
+//        vc.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        
+        vc.imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        vc.imageView?.image = photoArray[indexPath.item]
+//        vc.imageView?.sizeThatFits(CGSize(width: 100, height: 100))
+//        vc.imageView?.heig
+        
+        vc.photoArray = photoArray
+//        vc.supportedInterfaceOrientations.rawValue = 
+        vc.modalPresentationStyle = .fullScreen
+        vc.setNeedsStatusBarAppearanceUpdate()
+        present(vc, animated: true, completion: nil)
+    }
 }
