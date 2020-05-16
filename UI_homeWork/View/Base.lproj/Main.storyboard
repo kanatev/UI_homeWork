@@ -76,7 +76,7 @@
         <!--Новости-->
         <scene sceneID="Hvk-qb-qvN">
             <objects>
-                <tableViewController id="sDi-yR-kVL" customClass="NewsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="controller1" id="sDi-yR-kVL" customClass="NewsTableVC" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="coK-H1-WlU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -264,7 +264,7 @@
         <!--Новости-->
         <scene sceneID="4hj-zw-Pb6">
             <objects>
-                <navigationController id="G6D-dP-1EN" sceneMemberID="viewController">
+                <navigationController id="G6D-dP-1EN" customClass="CustomNavController" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Новости" image="rectangle.grid.1x2.fill" catalog="system" id="s5h-lo-8Dg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZbM-cd-mlV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -449,7 +449,7 @@
         <!--Группы-->
         <scene sceneID="m6a-ze-Wce">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="JX7-wU-7Nj" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="JX7-wU-7Nj" customClass="CustomNavController" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Группы" image="person.3.fill" catalog="system" id="Snz-Fs-NRW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bZC-Aj-7p9">
@@ -518,7 +518,7 @@
         <!--Друзья-->
         <scene sceneID="sF0-NB-tGZ">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="TWn-QD-0Gw" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="TWn-QD-0Gw" customClass="CustomNavController" customModule="VK_limiter" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Друзья" image="person.2.fill" catalog="system" id="wRZ-JX-cgt"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gW5-cL-UnD">

@@ -11,6 +11,8 @@ import UIKit
 
 class FirstVC: UIViewController, UIAlertViewDelegate {
     
+    private let animator = Animator()
+    
     var animationPerformed: Bool?
     var grayView: UIView?
     var dotsView: UIView?
@@ -32,6 +34,11 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
     
     @IBAction func enterButton(_ sender: Any) {
         animation4()
+//        let navigationController = UINavigationController()
+//        let controller1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier:"controller1")
+//        navigationController.setViewControllers([controller1], animated: false)
+//        navigationController.transitioningDelegate = self
+//        present(navigationController, animated: true)
     }
     
     func showArert() {
@@ -396,4 +403,15 @@ class FirstVC: UIViewController, UIAlertViewDelegate {
     
     
     
+}
+
+extension FirstVC: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animator
+    }
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return animator
+    }
 }

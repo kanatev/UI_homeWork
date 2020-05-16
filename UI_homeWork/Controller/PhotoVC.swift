@@ -124,6 +124,10 @@ class PhotoVC: UIViewController {
         print("orientation changed")
         if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft {
             print("landscapeLeft")
+//            let rotation = CAAnimationRotationMode()
+            
+            
+            
         } else if UIDevice.current.orientation.isPortrait {
             print("portrait")
         }
