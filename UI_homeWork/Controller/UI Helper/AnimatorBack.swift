@@ -12,7 +12,6 @@ class AnimatorBack: NSObject, UIViewControllerAnimatedTransitioning {
     
     private let animationDur: TimeInterval = 1
     
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return animationDur
     }
@@ -39,9 +38,14 @@ class AnimatorBack: NSObject, UIViewControllerAnimatedTransitioning {
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
-                let translation = CGAffineTransform(translationX: source.view.bounds.width/2, y: 0)
-                let scale = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                source.view.transform = translation.concatenating(scale)
+//                let translation = CGAffineTransform(translationX: source.view.bounds.width/2, y: 0)
+//                let scale = CGAffineTransform(scaleX: 1.2, y: 1.2)
+//                source.view.transform = translation.concatenating(scale)
+//
+                let translation = CGAffineTransform(translationX: -transitionContext.containerView.frame.width, y: transitionContext.containerView.frame.height)
+                let rotation = CGAffineTransform(rotationAngle: -2)
+                source.view.transform = translation.concatenating(rotation)
+                
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.4, animations: {
