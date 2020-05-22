@@ -135,7 +135,7 @@ class PhotoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .black
         UIDevice.current.beginGeneratingDeviceOrientationNotifications()
         NotificationCenter.default.addObserver(
             self,

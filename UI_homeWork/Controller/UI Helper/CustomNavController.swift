@@ -30,12 +30,12 @@ class CustomNavController: UINavigationController, UINavigationControllerDelegat
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return nil
-//            return AnimatorForward() // return animator
+//            return nil
+            return AnimatorForw() // return animator
             
         case .pop:
 //            return nil
-            return AnimatorPop() // return animator
+            return AnimatorBack() // return animator
             
         default:
             return nil
