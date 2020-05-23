@@ -8,13 +8,25 @@
 
 import UIKit
 
+protocol ChildViewControllerDelegate: class {
+    func getDataBack(groupToAdd : GroupStruct) -> ()
+}
+
 class AllGroupsTableVC: UITableViewController {
     
+    weak var delegate : ChildViewControllerDelegate?
+
     let allGroupsArray = GroupStruct.createAddGroupsArray()
-    
+    var groupToAdd: GroupStruct?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // регистрируем кастомную XIB'ную ячейку
+        let xibCellNib = UINib(nibName: "XibCell", bundle: nil)
+        self.tableView.register(xibCellNib, forCellReuseIdentifier: "XibCell")
+        //        self.tableView.register(, forHeaderFooterViewReuseIdentifier: )
         
         // задаем высоту ячейки
         self.tableView.rowHeight = 80
@@ -34,34 +46,19 @@ class AllGroupsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: "XibCell", for: indexPath) as? XibCell else {preconditionFailure("XibCell doesn't work")}
-        //
-        //        cell.ourLabel?.text = allGroupsArray[indexPath.row].groupName
-        //        cell.imgView?.image = allGroupsArray[indexPath.row].groupAvatar ?? UIImage (named: "empty_photo")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "XibCell", for: indexPath) as? XibCell else {preconditionFailure("XibCell doesn't work")}
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "addGroupCell", for: indexPath)
-        
-        cell.textLabel?.text = allGroupsArray[indexPath.row].groupName
-        cell.imageView?.image = allGroupsArray[indexPath.row].groupAvatar ?? UIImage (named: "empty_photo")!
-        
-        
-        // присваиваем группе фото
-        cell.imageView?.image = UIImage(named: cell.textLabel!.text!)
-        if cell.imageView?.image == nil {
-            cell.imageView?.image = UIImage(named: "empty_photo")
-        }
-        
-        //         настраиваем скругление фото
-        cell.imageView?.layer.borderColor = UIColor.black.cgColor
-        cell.imageView?.layer.borderWidth = 0.5
-        cell.imageView?.layer.masksToBounds = false
-        cell.imageView?.layer.cornerRadius = self.tableView.rowHeight/2
-        cell.imageView?.clipsToBounds = true
+        cell.ourLabel?.text = allGroupsArray[indexPath.row].groupName
+        cell.shadowView.image1 = allGroupsArray[indexPath.row].groupAvatar ?? UIImage (named: "empty_photo")!
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        groupToAdd = allGroupsArray[indexPath.row]
+        self.delegate?.getDataBack(groupToAdd: groupToAdd!)
+        self.navigationController?.popViewController(animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Groups"
