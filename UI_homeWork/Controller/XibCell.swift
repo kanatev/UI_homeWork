@@ -11,6 +11,7 @@ import UIKit
 class XibCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var ourLabel: UILabel!
+    @IBOutlet weak var shadowView: ShadowView3!
     
     
     override func awakeFromNib() {
