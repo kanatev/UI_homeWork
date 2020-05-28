@@ -23,8 +23,36 @@ import UIKit
             let friendDestination: FriendCollectionVC = segue.destination as! FriendCollectionVC
             let friendSource = segue.source as! FriendsTableVC
             
+            
             if let indexPath = friendSource.tableView.indexPathForSelectedRow {
-                friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+//                friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+                
+                
+                let ourSec = firstCharacters[indexPath.section]
+//                let ourDict = Character:[UserStruct]
+                var tmpArray: [UserStruct] = []
+
+                
+                
+                for dicct in sortedFriendsDict {
+                    
+                    if dicct.key == ourSec {
+                        tmpArray.append(contentsOf: dicct.value)
+                    }
+//                    print(friendDestination.ourPerson as Any)
+                                            
+                    //                        friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+                    
+                    
+                }
+                print(tmpArray)
+                friendDestination.ourPerson = tmpArray[indexPath.row]
+
+                
+//                friendDestination.ourPerson = friendsArray[indexPath.section]
+                
+                
+//                let tmpPers =
             }
         }
     }
