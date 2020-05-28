@@ -70,19 +70,31 @@ class PhotoVC: UIViewController {
     
     // функция свайпа фото вперед
     @objc func nextPhotoGesture(){
+
         UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.calculationModeCubicPaced], animations: {
             UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
                 self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             }
             
         }, completion:  {_ in
+
             self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             
             let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)+1
             if newPosition! < self.photoArray.count {
                 self.imageView.image = self.photoArray[newPosition!]
+                
+                let newSize = self.getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.photoArray[newPosition!].size.width, height: self.photoArray[newPosition!].size.height)
+                self.imageView.frame.size = newSize
+                self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+                
             } else {
                 self.imageView.image = self.photoArray[0]
+                
+                let newSize = self.getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.photoArray[0].size.width, height: self.photoArray[0].size.height)
+                self.imageView.frame.size = newSize
+                self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+                
             }
             
             let transition = CATransition()
@@ -101,8 +113,19 @@ class PhotoVC: UIViewController {
         let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)-1
         if newPosition! >= 0 {
             self.imageView.image = self.photoArray[newPosition!]
+            
+            let newSize = self.getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.photoArray[newPosition!].size.width, height: self.photoArray[newPosition!].size.height)
+            self.imageView.frame.size = newSize
+            self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+            
+            
         } else {
             self.imageView.image = self.photoArray.last
+            
+            let newSize = self.getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.photoArray.last!.size.width, height: self.photoArray.last!.size.height)
+            self.imageView.frame.size = newSize
+            self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+            
         }
         
         let transition = CATransition()
@@ -202,5 +225,4 @@ class PhotoVC: UIViewController {
         }
         return newSize
     }
-
 }
