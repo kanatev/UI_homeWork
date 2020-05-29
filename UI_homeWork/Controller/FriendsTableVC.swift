@@ -10,6 +10,13 @@ import UIKit
 @IBDesignable class FriendsTableVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var ourSearchBar: UISearchBar!
     
+//    override open var shouldAutorotate: Bool {
+//        return false
+//    }
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return .portrait
+//    }
+    
     var friendsArray = UserStruct.createFriendsArray()
     var firstCharacters = [Character]()
     var sortedFriendsDict: [Character:[UserStruct]] = [:]
@@ -214,3 +221,13 @@ import UIKit
 
     
 }
+
+//extension UINavigationController {
+//  open override var shouldAutorotate: Bool {
+//    return true
+//  }
+//    
+//  open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//    return .portrait
+//  }
+//}
