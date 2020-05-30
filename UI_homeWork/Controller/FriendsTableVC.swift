@@ -218,7 +218,18 @@ import UIKit
         }
     }
     
-
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        let arrWithSectionNames = firstCharacters.map { String($0) }
+        var arrWithDots: [String] = []
+        for letter in arrWithSectionNames {
+            arrWithDots.append(letter)
+            arrWithDots.append("•")
+        }
+        arrWithDots.removeLast()
+        print(arrWithSectionNames)
+        print(arrWithDots as Any)
+        return arrWithDots
+    }
     
 }
 
