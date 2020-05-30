@@ -10,6 +10,13 @@ import UIKit
 @IBDesignable class FriendsTableVC: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var ourSearchBar: UISearchBar!
     
+//    override open var shouldAutorotate: Bool {
+//        return false
+//    }
+//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//        return .portrait
+//    }
+    
     var friendsArray = UserStruct.createFriendsArray()
     var firstCharacters = [Character]()
     var sortedFriendsDict: [Character:[UserStruct]] = [:]
@@ -23,8 +30,36 @@ import UIKit
             let friendDestination: FriendCollectionVC = segue.destination as! FriendCollectionVC
             let friendSource = segue.source as! FriendsTableVC
             
+            
             if let indexPath = friendSource.tableView.indexPathForSelectedRow {
-                friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+//                friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+                
+                
+                let ourSec = firstCharacters[indexPath.section]
+//                let ourDict = Character:[UserStruct]
+                var tmpArray: [UserStruct] = []
+
+                
+                
+                for dicct in sortedFriendsDict {
+                    
+                    if dicct.key == ourSec {
+                        tmpArray.append(contentsOf: dicct.value)
+                    }
+//                    print(friendDestination.ourPerson as Any)
+                                            
+                    //                        friendDestination.photoArray = friendsArray[indexPath.row].photoArray ?? [UIImage (named: "1no-img")!]
+                    
+                    
+                }
+                print(tmpArray)
+                friendDestination.ourPerson = tmpArray[indexPath.row]
+
+                
+//                friendDestination.ourPerson = friendsArray[indexPath.section]
+                
+                
+//                let tmpPers =
             }
         }
     }
@@ -183,6 +218,27 @@ import UIKit
         }
     }
     
-
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        let arrWithSectionNames = firstCharacters.map { String($0) }
+        var arrWithDots: [String] = []
+        for letter in arrWithSectionNames {
+            arrWithDots.append(letter)
+            arrWithDots.append("•")
+        }
+        arrWithDots.removeLast()
+        print(arrWithSectionNames)
+        print(arrWithDots as Any)
+        return arrWithDots
+    }
     
 }
+
+//extension UINavigationController {
+//  open override var shouldAutorotate: Bool {
+//    return true
+//  }
+//    
+//  open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+//    return .portrait
+//  }
+//}

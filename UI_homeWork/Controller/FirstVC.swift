@@ -11,6 +11,10 @@ import UIKit
 
 class FirstVC: UIViewController, UIAlertViewDelegate {
     
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+    
     private let animator = Animator()
     
     var animationPerformed: Bool?

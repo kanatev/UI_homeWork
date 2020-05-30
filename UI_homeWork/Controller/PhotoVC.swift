@@ -14,25 +14,29 @@ class PhotoVC: UIViewController {
     var photoArray: [UIImage]!
     var imageView2: UIImageView!
     
-    
+    var swipeTopToBottom: UISwipeGestureRecognizer? = nil
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .all
     }
-    
+     
     override func viewWillLayoutSubviews() {
-        let newSize = getSizeForImage(heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+        
+        let newSize = getSizeForImageWithOrientation(orientation: UIDevice.current.orientation, heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
         
         self.imageView.frame.size = newSize
-        self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+            self.imageView.frame.origin.x = (self.view.bounds.width/2-(newSize.width/2))
+            self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+        
+        self.viewForPicture.frame = self.view.frame
     }
     
     func findImagePosition(currentImage: UIImage, arrayOfImages: [UIImage]) -> Int {
@@ -70,19 +74,37 @@ class PhotoVC: UIViewController {
     
     // функция свайпа фото вперед
     @objc func nextPhotoGesture(){
+        
         UIView.animateKeyframes(withDuration: 0.3, delay: 0, options: [.calculationModeCubicPaced], animations: {
             UIView.addKeyframe(withRelativeStartTime: 1, relativeDuration: 1) {
                 self.imageView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             }
             
         }, completion:  {_ in
+            
             self.imageView.transform = CGAffineTransform(scaleX: 1, y: 1)
             
             let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)+1
             if newPosition! < self.photoArray.count {
                 self.imageView.image = self.photoArray[newPosition!]
+                
+                let newSize = self.getSizeForImageWithOrientation(orientation: UIDevice.current.orientation, heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+                
+                self.imageView.frame.size = newSize
+
+                    self.imageView.frame.origin.x = (self.view.bounds.width/2-(newSize.width/2))
+                    self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+                
             } else {
                 self.imageView.image = self.photoArray[0]
+                
+                let newSize = self.getSizeForImageWithOrientation(orientation: UIDevice.current.orientation, heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+                
+                self.imageView.frame.size = newSize
+
+                    self.imageView.frame.origin.x = (self.view.bounds.width/2-(newSize.width/2))
+                    self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+                
             }
             
             let transition = CATransition()
@@ -101,8 +123,25 @@ class PhotoVC: UIViewController {
         let newPosition: Int? = self.findImagePosition(currentImage: self.imageView.image!, arrayOfImages: self.photoArray)-1
         if newPosition! >= 0 {
             self.imageView.image = self.photoArray[newPosition!]
+
+            let newSize = self.getSizeForImageWithOrientation(orientation: UIDevice.current.orientation, heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+            
+            self.imageView.frame.size = newSize
+
+                self.imageView.frame.origin.x = (self.view.bounds.width/2-(newSize.width/2))
+                self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+            
+            
         } else {
             self.imageView.image = self.photoArray.last
+            
+            let newSize = self.getSizeForImageWithOrientation(orientation: UIDevice.current.orientation, heightOfView: super.view.frame.height, widthOfView: super.view.frame.width, width: self.imageView.image!.size.width, height: self.imageView.image!.size.height)
+            
+            self.imageView.frame.size = newSize
+
+                self.imageView.frame.origin.x = (self.view.bounds.width/2-(newSize.width/2))
+                self.imageView.frame.origin.y = (self.view.bounds.height/2-(newSize.height/2))
+            
         }
         
         let transition = CATransition()
@@ -124,10 +163,7 @@ class PhotoVC: UIViewController {
         print("orientation changed")
         if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft {
             print("landscapeLeft")
-//            let rotation = CAAnimationRotationMode()
-            
-            
-            
+
         } else if UIDevice.current.orientation.isPortrait {
             print("portrait")
         }
@@ -147,9 +183,9 @@ class PhotoVC: UIViewController {
         self.view.addSubview(viewForPicture)
         self.viewForPicture.addSubview(self.imageView)
         
-        let swipeTopToBottom = UISwipeGestureRecognizer(target: self, action: #selector(exitDownGesture))
-        swipeTopToBottom.direction = .down
-        self.viewForPicture.addGestureRecognizer(swipeTopToBottom)
+        self.swipeTopToBottom = UISwipeGestureRecognizer(target: self, action: #selector(exitDownGesture))
+        self.swipeTopToBottom!.direction = .down
+        self.viewForPicture.addGestureRecognizer(swipeTopToBottom!)
         
         let swipeBottomToTop = UISwipeGestureRecognizer(target: self, action: #selector(exitUpGesture))
         swipeBottomToTop.direction = .up
@@ -162,6 +198,10 @@ class PhotoVC: UIViewController {
         let swipeToPrevious = UISwipeGestureRecognizer(target: self, action: #selector(previousPhotoGesture))
         swipeToPrevious.direction = .right
         self.viewForPicture.addGestureRecognizer(swipeToPrevious)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIDevice.current.endGeneratingDeviceOrientationNotifications()
     }
     
     
@@ -184,23 +224,27 @@ class PhotoVC: UIViewController {
     }
     
     func getSizeForImageWithOrientation(orientation: UIDeviceOrientation, heightOfView: CGFloat, widthOfView: CGFloat, width: CGFloat, height: CGFloat) -> CGSize {
+        
+        var newSize: CGSize!
+        
         let multiplierForHeight = height / width
+        let multiplierForWidth = width / height
         var newWidth: CGFloat
         var newHeight: CGFloat
-        var newSize: CGSize = CGSize(width: 100, height: 100)
         
         if orientation == .landscapeRight || orientation == .landscapeLeft {
-            newWidth = widthOfView
-            //            newWidth = 100
-            newHeight = multiplierForHeight * widthOfView
-            //            newHeight = 100
+            newWidth = multiplierForWidth * heightOfView
+            newHeight = heightOfView
             newSize = CGSize(width: newWidth, height: newHeight)
+            
         } else {
             newWidth = widthOfView
-            newHeight = heightOfView
+            newHeight = multiplierForHeight * widthOfView
             newSize = CGSize(width: newWidth, height: newHeight)
         }
         return newSize
     }
-
+    
 }
+
+// proverka

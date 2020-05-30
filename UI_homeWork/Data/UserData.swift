@@ -20,20 +20,12 @@ let diCaprioPhotoSet:  [UIImage] = [UIImage (named: "DiCaprio1")!,
                                     UIImage (named: "DiCaprio9")!,
                                     UIImage (named: "DiCaprio10")!]
 
-let joliePhotoSet:  [UIImage] = [UIImage (named: "DiCaprio1")!,
-                                 UIImage (named: "DiCaprio2")!,
-                                 UIImage (named: "DiCaprio3")!,
-                                 UIImage (named: "DiCaprio4")!,
-                                 UIImage (named: "DiCaprio5")!,
-                                 UIImage (named: "DiCaprio6")!,
-                                 UIImage (named: "DiCaprio7")!,
-                                 UIImage (named: "DiCaprio8")!,
-                                 UIImage (named: "DiCaprio9")!,
-                                 UIImage (named: "DiCaprio10")!]
+let joliePhotoSet:  [UIImage] = [UIImage (named: "racoon1")!,
+                                 UIImage (named: "racoon2")!]
 
 
 
-let photoSet10: [UIImage] = [UIImage (named: "dog1")!,
+let lawrencePhotoSet: [UIImage] = [UIImage (named: "dog1")!,
                              UIImage (named: "dog2")!,
                              UIImage (named: "dog3")!,
                              UIImage (named: "dog4")!,
@@ -118,9 +110,9 @@ let photoSet11: [UIImage] = [UIImage (named: "dolphin1")!,
 
 
 var friendsArray: [UserStruct] = [
-    UserStruct(name: "Jolie", avatar: UIImage(named: "Jolie"), photoArray: diCaprioPhotoSet),
-    UserStruct(name: "DiCaprio", avatar: UIImage(named: "DiCaprio"), photoArray: photoSet2),
-    UserStruct(name: "Lawrence", avatar: UIImage(named: "Lawrence"), photoArray: photoSet3),
+    UserStruct(name: "Jolie", avatar: UIImage(named: "Jolie"), photoArray: joliePhotoSet),
+    UserStruct(name: "DiCaprio", avatar: UIImage(named: "DiCaprio"), photoArray: diCaprioPhotoSet),
+    UserStruct(name: "Lawrence", avatar: UIImage(named: "Lawrence"), photoArray: lawrencePhotoSet),
     UserStruct(name: "Pitt", avatar: UIImage(named: "Pitt"), photoArray: photoSet4),
     UserStruct(name: "Portman", avatar: UIImage(named: "Portman"), photoArray: photoSet5)
 ]

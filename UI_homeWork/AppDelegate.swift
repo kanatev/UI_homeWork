@@ -70,3 +70,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension UINavigationController {
+  open override var shouldAutorotate: Bool {
+    return false
+  }
+    
+  open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return topViewController?.supportedInterfaceOrientations ?? .allButUpsideDown
+    }
+}
+
+extension UITabBarController {
+  open override var shouldAutorotate: Bool {
+      return false
+  }
+    
+  open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return selectedViewController?.supportedInterfaceOrientations ?? .allButUpsideDown
+    }
+}
