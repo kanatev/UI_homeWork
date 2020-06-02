@@ -52,7 +52,7 @@ import UIKit
                     
                     
                 }
-                print(tmpArray)
+//                print(tmpArray)
                 friendDestination.ourPerson = tmpArray[indexPath.row]
 
                 
@@ -221,13 +221,16 @@ import UIKit
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         let arrWithSectionNames = firstCharacters.map { String($0) }
         var arrWithDots: [String] = []
-        for letter in arrWithSectionNames {
-            arrWithDots.append(letter)
-            arrWithDots.append("•")
+        for index in arrWithSectionNames.indices {
+            
+            if index == 0 || index % 2 == 0 {
+                arrWithDots.append(arrWithSectionNames[index])
+            } else {
+                arrWithDots.append("•")
+            }
         }
-        arrWithDots.removeLast()
-        print(arrWithSectionNames)
-        print(arrWithDots as Any)
+//        print(arrWithSectionNames)
+//        print(arrWithDots as Any)
         return arrWithDots
     }
     

@@ -17,6 +17,7 @@
 		E54CA66C22C8653B00EB78AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E54CA66B22C8653B00EB78AE /* Assets.xcassets */; };
 		E54CA66F22C8653B00EB78AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E54CA66D22C8653B00EB78AE /* LaunchScreen.storyboard */; };
 		E55D7A762477349800DFD005 /* AnimatorForw.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D7A752477349800DFD005 /* AnimatorForw.swift */; };
+		E55F25F0248582E500F15A0A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F25EF248582E500F15A0A /* Session.swift */; };
 		E56D3E2022D4D77D003D67D2 /* FriendsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */; };
 		E581236F22CCB81E00A938DA /* FriendsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581236E22CCB81E00A938DA /* FriendsTableVC.swift */; };
 		E581237222CCBEDA00A938DA /* GroupsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E581237122CCBEDA00A938DA /* GroupsTableVC.swift */; };
@@ -48,6 +49,7 @@
 		E54CA66E22C8653B00EB78AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E54CA67022C8653B00EB78AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E55D7A752477349800DFD005 /* AnimatorForw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorForw.swift; sourceTree = "<group>"; };
+		E55F25EF248582E500F15A0A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E56D3E1F22D4D77D003D67D2 /* FriendsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewCell.swift; sourceTree = "<group>"; };
 		E581236E22CCB81E00A938DA /* FriendsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableVC.swift; sourceTree = "<group>"; };
 		E581237122CCBEDA00A938DA /* GroupsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableVC.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E54CA66422C8653B00EB78AE /* AppDelegate.swift */,
+				E55F25EF248582E500F15A0A /* Session.swift */,
 				E5C8A5F322D5AE48008BE120 /* Data */,
 				E5AA35D322D5083400F5F0A2 /* Model */,
 				E581237022CCB82500A938DA /* Controller */,
@@ -279,6 +282,7 @@
 				E501C659245DC35500729270 /* NewsCell.swift in Sources */,
 				E5BF0DEE22DA5B2B00E74D76 /* FriendsTableViewCell.swift in Sources */,
 				E56D3E2022D4D77D003D67D2 /* FriendsCollectionViewCell.swift in Sources */,
+				E55F25F0248582E500F15A0A /* Session.swift in Sources */,
 				E501C657245DB63600729270 /* NewsTableVC.swift in Sources */,
 				E54CA66722C8653B00EB78AE /* FirstVC.swift in Sources */,
 				E5C49DDB24706A4E008F3D41 /* AnimatorForward.swift in Sources */,
